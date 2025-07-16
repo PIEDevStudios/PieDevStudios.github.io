@@ -1,6 +1,13 @@
+import HomeCarousel from "./HomeCarousel";
 function Home () {
-    <div className="min-h-screen text-center bg-gray-100 padding-5">
-        <div>akjsldhfjaksdhfk </div>
-    </div>
+    return (
+        <div className="bg-beige min-h-screen">
+            <HomeCarousel />
+            <div className="margin border border-white min-h-screen">
+                adsfklasdfkl
+            </div>
+        </div>
+    )
+
 }
 export default Home;
