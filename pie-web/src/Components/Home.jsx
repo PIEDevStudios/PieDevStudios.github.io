@@ -4,7 +4,7 @@ function Home () {
         <div className="bg-beige min-h-screen">
             <HomeCarousel />
             <div className="margin border border-white min-h-screen">
-                adsfklasdfkl
+                ding dong
             </div>
         </div>
     )
