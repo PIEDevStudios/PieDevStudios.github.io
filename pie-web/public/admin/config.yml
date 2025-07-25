@@ -1,20 +1,22 @@
+# Use DecapBridge auth (required)
 backend:
-  name: "github" # Use Git Gateway for authentication
-  branch: "main" # The branch where the content will be stored'
-  repo: "kaleyvuong/pie-web" # The GitHub repository where the content is stored
+  name: git-gateway
+  repo: PieDevStudios/pie-web
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/e0073d6d-d151-4ea0-aa71-f2106fecfb9c
+  gateway_url: https://gateway.decapbridge.com
 
-media_folder: "src/assets" # Location where files will be stored in the repo
-public_folder: "src/assets" # The src attribute for uploaded media
+  # Quickly see who did what (optional)
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
 
-collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "src/content/blog" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields for each document, usually in frontmatter
-      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
-      - { label: "Body", name: "body", widget: "markdown" }
+# Better Decap + Bridge logo (optional)
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+# Add site links in DecapCMS (optional)
+site_url: https://pie-web.netlify.app
