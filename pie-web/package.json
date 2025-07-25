@@ -1,5 +1,5 @@
 {
-  "name": "pie-web",
+  "name": "test",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,20 +10,7 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^6.5.3",
-    "@astrojs/node": "^9.3.0",
-    "@astrojs/react": "^4.3.0",
-    "@tailwindcss/vite": "^4.1.11",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "astro": "^5.12.2",
-    "decap-cms-app": "^3.8.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^7.7.0",
-    "tailwindcss": "^4.1.11"
-  },
-  "resolutions": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "astro": "^5.12.3",
+    "react-router-dom": "^7.7.1"
   }
 }
