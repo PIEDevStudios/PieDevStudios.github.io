@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/netlify": "^6.5.3",
     "astro": "^5.12.3",
+    "decap-cms-app": "^3.8.2",
     "react-router-dom": "^7.7.1"
   }
 }
