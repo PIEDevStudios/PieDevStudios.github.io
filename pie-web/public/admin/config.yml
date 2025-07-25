@@ -1,6 +1,7 @@
 backend:
-  name: "git-gateway" # Use Git Gateway for authentication
+  name: "github" # Use Git Gateway for authentication
   branch: "main" # The branch where the content will be stored
+  repo: "kaleyvuong/pie-web"
 
 media_folder: "src/assets" # Location where files will be stored in the repo
 public_folder: "src/assets" # The src attribute for uploaded media
