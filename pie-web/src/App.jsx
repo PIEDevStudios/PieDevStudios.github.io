@@ -2,12 +2,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 // import './App.css'
 
-const Home = lazy(() => import('./Components/Home.jsx'));
-const Navigation = lazy(() => import('./Components/Navigation.jsx'));
-const Footer = lazy(() => import('./Components/Footer.jsx'));
-const Games = lazy(() => import('./Components/Games.jsx'));
-const Blog = lazy(() => import('./Components/Blog.jsx'));
-const About = lazy(() => import('./Components/About.jsx'));
+const Home = lazy(() => import('./components/Home.jsx'));
+const Navigation = lazy(() => import('./components/Navigation.jsx'));
+const Footer = lazy(() => import('./components/Footer.jsx'));
+const Games = lazy(() => import('./components/Games.jsx'));
+const Blog = lazy(() => import('./components/Blog.jsx'));
+const About = lazy(() => import('./components/About.jsx'));
 
 function App() {
 
