@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import pieLogo from '../Assets/piedevlogo.png';
+import pieLogo from '../assets/piedevlogo.png';
 
 function Navigation () {
     return (
