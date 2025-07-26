@@ -1,4 +1,4 @@
-import HomeCarousel from "./HomeCarousel";
+import HomeCarousel from "../components/HomeCarousel";
 function Home () {
     return (
         <div className="bg-beige min-h-screen">
