@@ -23,6 +23,12 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Clean up image path for public assets
+  const getImagePath = (imagePath) => {
+    if (!imagePath) return null;
+    return imagePath.replace(/^pie-web\/public/, '');
+  };
+
   useEffect(() => {
     const importAll = async () => {
       try {
@@ -37,7 +43,7 @@ const Blog = () => {
         const fileEntries = Object.entries(markdownFiles);
         
         if (fileEntries.length === 0) {
-          throw new Error('No markdown files found in /src/pages/content/');
+          throw new Error('No markdown files found');
         }
 
         const loadedPosts = await Promise.all(
@@ -46,7 +52,10 @@ const Blog = () => {
               const rawContent = await resolver();
               const { data: frontmatter, content } = matter(rawContent);
               return {
-                frontmatter,
+                frontmatter: {
+                  ...frontmatter,
+                  thumbnail: getImagePath(frontmatter.thumbnail)
+                },
                 content,
                 slug: path.replace('/src/pages/content/', '').replace('.md', '')
               };
@@ -63,7 +72,6 @@ const Blog = () => {
         validPosts.sort((a, b) => 
           new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
-        
         setPosts(validPosts);
       } catch (err) {
         setError(err.message);
@@ -81,20 +89,25 @@ const Blog = () => {
   if (posts.length === 0) return <div>No posts found</div>;
 
   return (
-    <div className="blog-list">
-      <h1>Blog Posts</h1>
-      <div className="posts-container">
+    <div className="bg-beige min-h-screen">
+      <div className="margin">
+        <h1>Blogs</h1>
         {posts.map((post, index) => (
           <article key={index} className="post-card">
-            <h2>{post.frontmatter.title}</h2>
-            <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
             {post.frontmatter.thumbnail && (
               <img 
                 src={post.frontmatter.thumbnail} 
                 alt={post.frontmatter.title}
                 style={{ maxWidth: '200px' }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  console.error('Failed to load image:', post.frontmatter.thumbnail);
+                }}
               />
             )}
+            <h2>{post.frontmatter.title}</h2>
+            <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
+ 
             {/* <ReactMarkdown>
               {post.content.length > 100 
                 ? `${post.content.substring(0, 100)}...`
