@@ -92,29 +92,25 @@ const Blog = () => {
     <div className="bg-beige min-h-screen">
       <div className="margin">
         <h1>Blogs</h1>
-        {posts.map((post, index) => (
-          <article key={index} className="post-card">
-            {post.frontmatter.thumbnail && (
-              <img 
-                src={post.frontmatter.thumbnail} 
-                alt={post.frontmatter.title}
-                style={{ maxWidth: '200px' }}
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  console.error('Failed to load image:', post.frontmatter.thumbnail);
-                }}
-              />
-            )}
-            <h2>{post.frontmatter.title}</h2>
-            <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
- 
-            {/* <ReactMarkdown>
-              {post.content.length > 100 
-                ? `${post.content.substring(0, 100)}...`
-                : post.content}
-            </ReactMarkdown> */}
-          </article>
-        ))}
+        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+          {posts.map((post, index) => (
+            <article key={index} className="border border-white p-5 rounded-lg bg-white shadow-md">
+              {post.frontmatter.thumbnail && (
+                <img 
+                  src={post.frontmatter.thumbnail} 
+                  alt={post.frontmatter.title}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    console.error('Failed to load image:', post.frontmatter.thumbnail);
+                  }}
+                />
+              )}
+              <h2>{post.frontmatter.title}</h2>
+              <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
+            </article>
+          ))}
+        </div>
+
       </div>
     </div>
   );
