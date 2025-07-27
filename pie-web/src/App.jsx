@@ -8,6 +8,7 @@ const Footer = lazy(() => import('./components/Footer.jsx'));
 const Games = lazy(() => import('./pages/Games.jsx'));
 const Blog = lazy(() => import('./pages/Blog.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
+const IndvBlog = lazy(() => import('./pages/IndvBlog.jsx'));
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/Games' element={<Games />} />
         <Route path='/Blog' element={<Blog />} />
         <Route path='/About' element={<About />} />
+        <Route path='/IndvBlog/:slug' element={<IndvBlog />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,62 +1,33 @@
-// function IndvBlog () {
-//     return (
-//         <div>
-            
-//         </div>
-//     )
-// }
-
-// export default IndvBlog;
-
-// src/pages/BlogPost.jsx
+import useBlogPosts from '../hooks/useBlogPosts';
 import { useParams } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import matter from 'gray-matter';
-import { useEffect, useState } from 'react';
 
 const IndvBlog = () => {
   const { slug } = useParams();
-  const [post, setPost] = useState(null);
+  const { posts, loading, error } = useBlogPosts(slug);
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await import(`../content/${slug}.md`);
-        const { data: frontmatter, content } = matter(response.default);
-        setPost({ frontmatter, content });
-      } catch (err) {
-        console.error('Error loading post:', err);
-      }
-    };
+  if (loading) return <div>Loading post...</div>;
+  if (error) return <div>Error: {error}</div>;
+  const post = posts.find(p => p.slug === slug);
+  if (!post) return <div>Post not found</div>;
 
-    fetchPost();
-  }, [slug]);
-
-  if (!post) return <div>Loading...</div>;
 
   return (
-    <article className="blog-post">
-      <header>
-        <h1>{post.frontmatter.title}</h1>
-        {post.frontmatter.date && (
-          <time dateTime={post.frontmatter.date}>
-            {new Date(post.frontmatter.date).toLocaleDateString()}
-          </time>
-        )}
-      </header>
-      
-      {post.frontmatter.thumbnail && (
-        <img 
-          src={post.frontmatter.thumbnail} 
-          alt={post.frontmatter.title} 
-          className="post-image"
-        />
-      )}
-      
-      <div className="post-content">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+    <div className='beige min-h-screen'>
+      <div className='margin'>
+        <h1 className='text-[5vw]'> {post.frontmatter.title}</h1>
+        <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
+          {post.frontmatter.thumbnail && (
+            <img 
+              src={post.frontmatter.thumbnail} 
+              alt={post.frontmatter.title}
+              onError={(e) => {
+                e.target.style.display = 'none';
+                console.error('Failed to load image:', post.frontmatter.thumbnail);
+              }}
+            />
+          )}
       </div>
-    </article>
+    </div>
   );
 };
 

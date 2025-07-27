@@ -1,88 +1,9 @@
-// // function Blog () {
-// //     return (
-// //         <div className="bg-beige min-h-screen">
-// //             <div className="margin">
-// //                 Blog
-// //             </div>
-// //         </div>
-// //     ) 
-// // }
-// // export default Blog;
-
-import { useState, useEffect } from 'react';
-import matter from 'gray-matter';
-import { Buffer } from 'buffer';
-
-// Polyfill Buffer for browser
-if (typeof window !== 'undefined' && !window.Buffer) {
-  window.Buffer = Buffer;
-}
+import useBlogPosts from "../hooks/useBlogPosts";
+import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // Clean up image path for public assets
-  const getImagePath = (imagePath) => {
-    if (!imagePath) return null;
-    return imagePath.replace(/^pie-web\/public/, '');
-  };
-
-  useEffect(() => {
-    const importAll = async () => {
-      try {
-        setLoading(true);
-        // Updated glob import syntax
-        const markdownFiles = import.meta.glob('/src/pages/content/*.md', {
-          query: '?raw',
-          import: 'default',
-          eager: false
-        });
-
-        const fileEntries = Object.entries(markdownFiles);
-        
-        if (fileEntries.length === 0) {
-          throw new Error('No markdown files found');
-        }
-
-        const loadedPosts = await Promise.all(
-          fileEntries.map(async ([path, resolver]) => {
-            try {
-              const rawContent = await resolver();
-              const { data: frontmatter, content } = matter(rawContent);
-              return {
-                frontmatter: {
-                  ...frontmatter,
-                  thumbnail: getImagePath(frontmatter.thumbnail)
-                },
-                content,
-                slug: path.replace('/src/pages/content/', '').replace('.md', '')
-              };
-            } catch (fileErr) {
-              console.error(`Error processing ${path}:`, fileErr);
-              return null;
-            }
-          })
-        );
-
-        // Filter out failed imports
-        const validPosts = loadedPosts.filter(post => post !== null);
-        
-        validPosts.sort((a, b) => 
-          new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        );
-        setPosts(validPosts);
-      } catch (err) {
-        setError(err.message);
-        console.error('Error loading posts:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    importAll();
-  }, []);
+  const navigate = useNavigate(); 
+  const { posts, loading, error } = useBlogPosts();
 
   if (loading) return <div>Loading posts...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -92,9 +13,13 @@ const Blog = () => {
     <div className="bg-beige min-h-screen">
       <div className="margin">
         <h1>Blogs</h1>
-        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 '>
           {posts.map((post, index) => (
-            <article key={index} className="border border-white p-5 rounded-lg bg-white shadow-md">
+            <article 
+              key={index} 
+              role="button"
+              onClick={() => navigate(`/IndvBlog/${post.slug}`)}
+              className="border border-white p-5 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow cursor-pointer">
               {post.frontmatter.thumbnail && (
                 <img 
                   src={post.frontmatter.thumbnail} 
