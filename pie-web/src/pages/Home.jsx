@@ -1,7 +1,9 @@
 import HomeCarousel from "../components/HomeCarousel";
 import useBlogPosts from '../hooks/useBlogPosts';
+import { useNavigate } from 'react-router-dom';
 
 function Home () {
+    const navigate = useNavigate();
     const { posts, loading, error } = useBlogPosts();
 
     if (loading) return <div>Loading post...</div>;
@@ -11,9 +13,19 @@ function Home () {
     return (
         <div className="bg-beige min-h-screen">
             <HomeCarousel />
-            <div className="margin min-h-screen flex flex-col justify-center items-center">
+            <div className="margin min-h-screen flex flex-col justify-center items-center text-2xl p-5">
                 {posts.slice(0, 3).map((post, index) => (
-                    <article key={index}>
+                    <article key={index} className={`flex ${index === 1 ? 'flex-row-reverse' : ''}`}>
+                        <div>
+                            <h2>{post.frontmatter.title}</h2>
+                            <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
+                            {post.content.split(/\s+/).length > 150
+                                ? post.content.split(/\s+/).slice(0, 150).join(' ') + '...'
+                                : post.content}
+                            <br />
+                            <button className="cursor-pointer underline" onClick={() => navigate(`/IndvBlog/${post.slug}`)}> Read more</button>
+                        </div>
+                        
                         {post.frontmatter.thumbnail && (
                             <img 
                             src={post.frontmatter.thumbnail} 
@@ -25,11 +37,6 @@ function Home () {
                             className="place-self-center"
                             />
                         )}
-                        <h2>{post.frontmatter.title}</h2>
-                        <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
-                        {post.content.split(/\s+/).length > 300
-                            ? post.content.split(/\s+/).slice(0, 300).join(' ') + '...'
-                            : post.content}
                     </article>
                 ))}
             </div>
