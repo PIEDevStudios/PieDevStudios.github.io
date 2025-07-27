@@ -21,8 +21,8 @@ logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 # Add site links in DecapCMS (optional)
 site_url: https://pie-web.netlify.app
 
-media_folder: "public/assets" # Location where files will be stored in the repo
-public_folder: "/assets" # The src attribute for uploaded media
+media_folder: "pie-web/public/assets" # Location where files will be stored in the repo
+public_folder: "pie-web/public//assets" # The src attribute for uploaded media
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
