@@ -9,67 +9,93 @@
 // // }
 // // export default Blog;
 
-// import fs from 'fs';
-// import path from 'path';
-// import matter from 'gray-matter';
-// import { Link } from 'react-router-dom';
+// src/components/BlogList.jsx
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import matter from 'gray-matter';
+import { format } from 'date-fns';
+import { useEffect, useState } from 'react';
 
-// export async function getStaticProps() {
-//   const blogDir = path.join(process.cwd(), 'src/pages/blog');
-//   const files = fs.readdirSync(blogDir);
-  
-//   const posts = files.map(filename => {
-//     const filePath = path.join(blogDir, filename);
-//     const fileContent = fs.readFileSync(filePath, 'utf-8');
-//     const { data: frontmatter, excerpt } = matter(fileContent, {
-//       excerpt: true
-//     });
-    
-//     return {
-//       slug: filename.replace('.md', ''),
-//       frontmatter,
-//       excerpt
-//     };
-//   });
+const Blog = () => {
+  const [posts, setPosts] = useState([]);
 
-//   // Sort posts by date (newest first)
-//   posts.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+  useEffect(() => {
+    // Dynamically import all markdown files from the posts directory
+    const importAll = async () => {
+      // In Vite, use import.meta.glob for dynamic imports
+      const markdownFiles = import.meta.glob('../posts/*.md');
+      const postPromises = [];
 
-//   return {
-//     props: { posts }
-//   };
-// }
+      for (const path in markdownFiles) {
+        postPromises.push(
+          markdownFiles[path]().then((module) => {
+            // Parse the front matter and content
+            const { data: frontmatter, content } = matter(module.default);
+            return {
+              frontmatter,
+              content,
+              slug: path.replace('../posts/', '').replace('.md', '')
+            };
+          })
+        );
+      }
 
-// export default function Blog({ posts }) {
-//   return (
-//     <div className="container mx-auto px-4 py-8">
-//       <h1 className="text-3xl font-bold mb-8">Blog Posts</h1>
+      // Wait for all promises to resolve and sort by date
+      const loadedPosts = await Promise.all(postPromises);
+      loadedPosts.sort((a, b) => 
+        new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+      );
+      setPosts(loadedPosts);
+    };
+
+    importAll();
+  }, []);
+
+  return (
+    <div className="blog-list">
+      <h1>Blog Posts</h1>
+      {posts.length === 0 && <p>Loading posts...</p>}
       
-//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-//         {posts.map(post => (
-//           <Link 
-//             key={post.slug} 
-//             href={`/blog/${post.slug}`}
-//             className="block border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-//           >
-//             <div className="relative h-48">
-//               <Image
-//                 src={`/${post.frontmatter.thumbnail}`}
-//                 alt={post.frontmatter.title}
-//                 fill
-//                 className="object-cover"
-//               />
-//             </div>
-//             <div className="p-4">
-//               <h2 className="text-xl font-semibold mb-2">{post.frontmatter.title}</h2>
-//               <p className="text-gray-500 text-sm mb-2">
-//                 {new Date(post.frontmatter.date).toLocaleDateString()}
-//               </p>
-//               <p className="text-gray-700">{post.excerpt}</p>
-//             </div>
-//           </Link>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
+      <div className="posts-container">
+        {posts.map((post, index) => (
+          <article key={index} className="post-card">
+            {post.frontmatter.thumbnail && (
+              <div className="post-thumbnail">
+                <img 
+                  src={post.frontmatter.thumbnail} 
+                  alt={post.frontmatter.title} 
+                />
+              </div>
+            )}
+            
+            <div className="post-content">
+              <h2>{post.frontmatter.title}</h2>
+              
+              <div className="post-meta">
+                {post.frontmatter.date && (
+                  <time dateTime={post.frontmatter.date}>
+                    {format(new Date(post.frontmatter.date), 'MMMM d, yyyy')}
+                  </time>
+                )}
+              </div>
+              
+              <div className="post-excerpt">
+                <ReactMarkdown>
+                  {post.content.length > 200 
+                    ? `${post.content.substring(0, 200)}...` 
+                    : post.content}
+                </ReactMarkdown>
+              </div>
+              
+              <a href={`/blog/${post.slug}`} className="read-more">
+                Read more
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Blog;
