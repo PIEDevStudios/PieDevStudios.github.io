@@ -12,7 +12,7 @@ const IndvBlog = () => {
 
 
   return (
-    <div className='beige min-h-screen'>
+    <div className='bg-beige min-h-screen'>
       <div className='margin'>
         <h1 className='text-[5vw]'> {post.frontmatter.title}</h1>
         <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
@@ -26,6 +26,7 @@ const IndvBlog = () => {
               }}
             />
           )}
+          {post.content}
       </div>
     </div>
   );
