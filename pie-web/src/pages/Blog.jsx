@@ -9,88 +9,97 @@
 // // }
 // // export default Blog;
 
-// src/components/BlogList.jsx
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import { useState, useEffect } from 'react';
 import matter from 'gray-matter';
-import { format } from 'date-fns';
-import { useEffect, useState } from 'react';
+import { Buffer } from 'buffer';
+
+// Polyfill Buffer for browser
+if (typeof window !== 'undefined' && !window.Buffer) {
+  window.Buffer = Buffer;
+}
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Dynamically import all markdown files from the posts directory
     const importAll = async () => {
-      // In Vite, use import.meta.glob for dynamic imports
-      const markdownFiles = import.meta.glob('../posts/*.md');
-      const postPromises = [];
+      try {
+        setLoading(true);
+        // Updated glob import syntax
+        const markdownFiles = import.meta.glob('/src/pages/content/*.md', {
+          query: '?raw',
+          import: 'default',
+          eager: false
+        });
 
-      for (const path in markdownFiles) {
-        postPromises.push(
-          markdownFiles[path]().then((module) => {
-            // Parse the front matter and content
-            const { data: frontmatter, content } = matter(module.default);
-            return {
-              frontmatter,
-              content,
-              slug: path.replace('../posts/', '').replace('.md', '')
-            };
+        const fileEntries = Object.entries(markdownFiles);
+        
+        if (fileEntries.length === 0) {
+          throw new Error('No markdown files found in /src/pages/content/');
+        }
+
+        const loadedPosts = await Promise.all(
+          fileEntries.map(async ([path, resolver]) => {
+            try {
+              const rawContent = await resolver();
+              const { data: frontmatter, content } = matter(rawContent);
+              return {
+                frontmatter,
+                content,
+                slug: path.replace('/src/pages/content/', '').replace('.md', '')
+              };
+            } catch (fileErr) {
+              console.error(`Error processing ${path}:`, fileErr);
+              return null;
+            }
           })
         );
-      }
 
-      // Wait for all promises to resolve and sort by date
-      const loadedPosts = await Promise.all(postPromises);
-      loadedPosts.sort((a, b) => 
-        new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-      );
-      setPosts(loadedPosts);
+        // Filter out failed imports
+        const validPosts = loadedPosts.filter(post => post !== null);
+        
+        validPosts.sort((a, b) => 
+          new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+        );
+        
+        setPosts(validPosts);
+      } catch (err) {
+        setError(err.message);
+        console.error('Error loading posts:', err);
+      } finally {
+        setLoading(false);
+      }
     };
 
     importAll();
   }, []);
 
+  if (loading) return <div>Loading posts...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (posts.length === 0) return <div>No posts found</div>;
+
   return (
     <div className="blog-list">
       <h1>Blog Posts</h1>
-      {posts.length === 0 && <p>Loading posts...</p>}
-      
       <div className="posts-container">
         {posts.map((post, index) => (
           <article key={index} className="post-card">
+            <h2>{post.frontmatter.title}</h2>
+            <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
             {post.frontmatter.thumbnail && (
-              <div className="post-thumbnail">
-                <img 
-                  src={post.frontmatter.thumbnail} 
-                  alt={post.frontmatter.title} 
-                />
-              </div>
+              <img 
+                src={post.frontmatter.thumbnail} 
+                alt={post.frontmatter.title}
+                style={{ maxWidth: '200px' }}
+              />
             )}
-            
-            <div className="post-content">
-              <h2>{post.frontmatter.title}</h2>
-              
-              <div className="post-meta">
-                {post.frontmatter.date && (
-                  <time dateTime={post.frontmatter.date}>
-                    {format(new Date(post.frontmatter.date), 'MMMM d, yyyy')}
-                  </time>
-                )}
-              </div>
-              
-              <div className="post-excerpt">
-                <ReactMarkdown>
-                  {post.content.length > 200 
-                    ? `${post.content.substring(0, 200)}...` 
-                    : post.content}
-                </ReactMarkdown>
-              </div>
-              
-              <a href={`/blog/${post.slug}`} className="read-more">
-                Read more
-              </a>
-            </div>
+            {/* <ReactMarkdown>
+              {post.content.length > 100 
+                ? `${post.content.substring(0, 100)}...`
+                : post.content}
+            </ReactMarkdown> */}
           </article>
         ))}
       </div>

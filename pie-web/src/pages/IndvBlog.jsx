@@ -1,12 +1,12 @@
-// // function IndvBlog () {
-// //     return (
-// //         <div>
+// function IndvBlog () {
+//     return (
+//         <div>
             
-// //         </div>
-// //     )
-// // }
+//         </div>
+//     )
+// }
 
-// // export default IndvBlog;
+// export default IndvBlog;
 
 // src/pages/BlogPost.jsx
 import { useParams } from 'react-router-dom';
@@ -21,7 +21,7 @@ const IndvBlog = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await import(`../posts/${slug}.md`);
+        const response = await import(`../content/${slug}.md`);
         const { data: frontmatter, content } = matter(response.default);
         setPost({ frontmatter, content });
       } catch (err) {
