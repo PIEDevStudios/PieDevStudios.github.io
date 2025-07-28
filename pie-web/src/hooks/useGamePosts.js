@@ -45,8 +45,8 @@ export default function useGamePosts () {
                 frontmatter: {
                   ...frontmatter,
                   thumbnail: getImagePath(frontmatter.thumbnail),
-                  images: Array.isArray(frontmatter.images) ? frontmatter.images.map(getImagePath) : [],
-                  imageCarousel: frontmatter.images ? frontmatter.images.map(getImagePath) : [],
+                  images: Array.isArray(frontmatter.images) ? frontmatter.images.map(imgObj => getImagePath(imgObj.image)) : [],
+                  imageCarousel: frontmatter.images ? frontmatter.images.map(imgObj => getImagePath(imgObj.image)) : [],
                 },
                 content,
                 slug: path.replace('/src/pages/games/', '').replace('.md', ''),

@@ -43,7 +43,7 @@ collections:
     fields: # The fields for each document, usually in frontmatter
       - { label: "Layout", name: "layout", widget: "hidden", default: "games" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Trailer", name: "trailer", widget: "string", required: false  }
+      - { label: "Trailer ID (code at end of URL)", name: "trailer", widget: "string", required: false  }
       - { label: "Steam Link", name: "link", widget: "string", required: false }
       - { label: "Thumbnail", name: "thumbnail", widget: "image" } 
       - { label: "Description", name: "description", widget: "markdown" }
