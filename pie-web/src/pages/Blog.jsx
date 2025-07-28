@@ -31,7 +31,7 @@ const Blog = () => {
                 />
               )}
               <h2>{blog.frontmatter.title}</h2>
-              <p>{new Date(blog.frontmatter.date).toLocaleDateString()}</p>
+              <p>{new Date(blog.frontmatter.date).toLocaleDateString()} {" "} {new Date(blog.timestamp).toLocaleTimeString()}</p>
             </article>
           ))}
         </div>

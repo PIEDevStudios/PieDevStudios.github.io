@@ -41,13 +41,16 @@ export default function useBlogPosts () {
             try {
               const rawContent = await resolver();
               const { data: frontmatter, content } = matter(rawContent);
+              const dateObj = new Date(frontmatter.date);
               return {
                 frontmatter: {
                   ...frontmatter,
-                  thumbnail: getImagePath(frontmatter.thumbnail)
+                  thumbnail: getImagePath(frontmatter.thumbnail),
+                  featuredImage: getImagePath(frontmatter.featuredImage)
                 },
                 content,
-                slug: path.replace('/src/pages/blogs/', '').replace('.md', '')
+                slug: path.replace('/src/pages/blogs/', '').replace('.md', ''),
+                timestamp: dateObj.getTime()
               };
             } catch (fileErr) {
               console.error(`Error processing ${path}:`, fileErr);
@@ -59,9 +62,7 @@ export default function useBlogPosts () {
         // Filter out failed imports
         const validBlogs = loadedBlogs.filter(blog => blog !== null);
         
-        validBlogs.sort((a, b) => 
-          new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        );
+        validBlogs.sort((a, b) => b.timestamp - a.timestamp);
         setBlogs(validBlogs);
       } catch (err) {
         setError(err.message);

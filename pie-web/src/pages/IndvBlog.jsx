@@ -15,14 +15,14 @@ const IndvBlog = () => {
     <div className='bg-beige min-h-screen'>
       <div className='margin'>
         <h1 className='text-[5vw]'> {blog.frontmatter.title}</h1>
-        <p>{new Date(blog.frontmatter.date).toLocaleDateString()}</p>
-          {blog.frontmatter.thumbnail && (
+        <p>{new Date(blog.frontmatter.date).toLocaleDateString()} {" "} {new Date(blog.timestamp).toLocaleTimeString()}</p>
+          {blog.frontmatter.featuredImage && (
             <img 
-              src={blog.frontmatter.thumbnail} 
+              src={blog.frontmatter.featuredImage} 
               alt={blog.frontmatter.title}
               onError={(e) => {
                 e.target.style.display = 'none';
-                console.error('Failed to load image:', blog.frontmatter.thumbnail);
+                console.error('Failed to load image:', blog.frontmatter.featuredImage);
               }}
             />
           )}
