@@ -48,5 +48,5 @@ collections:
       - { label: "Thumbnail", name: "thumbnail", widget: "image" } 
       - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Features", name: "features", widget: "markdown" }
-      - { label: "Showcase Images", name: "images", widget: "list", fields: { label: "Image", name: "image", widget: "image" }}
-      - { label: "Image Carousel", name: "imageCarousel", widget: "image", multiple: true, required: false }
+      - { label: "Showcase Images", name: "images", widget: "list", fields: [ { label: "Image", name: "image", widget: "image" } ] }
+      - { label: "Image Carousel", name: "imageCarousel", widget: "image", fields: [ { label: "Image", name: "image", widget: "image" } ] }
