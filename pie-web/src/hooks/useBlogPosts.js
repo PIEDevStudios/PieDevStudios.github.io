@@ -14,7 +14,7 @@ if (typeof window !== 'undefined' && !window.Buffer) {
 
 
 export default function useBlogPosts () {
-  const [posts, setPosts] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -36,7 +36,7 @@ export default function useBlogPosts () {
           throw new Error('No markdown files found');
         }
 
-        const loadedPosts = await Promise.all(
+        const loadedBlogs = await Promise.all(
           fileEntries.map(async ([path, resolver]) => {
             try {
               const rawContent = await resolver();
@@ -57,15 +57,15 @@ export default function useBlogPosts () {
         );
 
         // Filter out failed imports
-        const validPosts = loadedPosts.filter(post => post !== null);
+        const validBlogs = loadedBlogs.filter(blog => blog !== null);
         
-        validPosts.sort((a, b) => 
+        validBlogs.sort((a, b) => 
           new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
-        setPosts(validPosts);
+        setBlogs(validBlogs);
       } catch (err) {
         setError(err.message);
-        console.error('Error loading posts:', err);
+        console.error('Error loading blogs:', err);
       } finally {
         setLoading(false);
       }
@@ -73,5 +73,5 @@ export default function useBlogPosts () {
 
     importAll();
   }, []);
-  return { posts, loading, error };
+  return { blogs, loading, error };
 }

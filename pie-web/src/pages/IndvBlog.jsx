@@ -3,30 +3,30 @@ import { useParams } from 'react-router-dom';
 
 const IndvBlog = () => {
   const { slug } = useParams();
-  const { posts, loading, error } = useBlogPosts(slug);
+  const { blogs, loading, error } = useBlogPosts(slug);
 
-  if (loading) return <div>Loading post...</div>;
+  if (loading) return <div>Loading blog...</div>;
   if (error) return <div>Error: {error}</div>;
-  const post = posts.find(p => p.slug === slug);
-  if (!post) return <div>Post not found</div>;
+  const blog = blogs.find(b => b.slug === slug);
+  if (!blog) return <div>Blog not found</div>;
 
 
   return (
     <div className='bg-beige min-h-screen'>
       <div className='margin'>
-        <h1 className='text-[5vw]'> {post.frontmatter.title}</h1>
-        <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
-          {post.frontmatter.thumbnail && (
+        <h1 className='text-[5vw]'> {blog.frontmatter.title}</h1>
+        <p>{new Date(blog.frontmatter.date).toLocaleDateString()}</p>
+          {blog.frontmatter.thumbnail && (
             <img 
-              src={post.frontmatter.thumbnail} 
-              alt={post.frontmatter.title}
+              src={blog.frontmatter.thumbnail} 
+              alt={blog.frontmatter.title}
               onError={(e) => {
                 e.target.style.display = 'none';
-                console.error('Failed to load image:', post.frontmatter.thumbnail);
+                console.error('Failed to load image:', blog.frontmatter.thumbnail);
               }}
             />
           )}
-          {post.content}
+          {blog.content}
       </div>
     </div>
   );

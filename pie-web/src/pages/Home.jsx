@@ -4,35 +4,35 @@ import { useNavigate } from 'react-router-dom';
 
 function Home () {
     const navigate = useNavigate();
-    const { posts, loading, error } = useBlogPosts();
+    const { blogs, loading, error } = useBlogPosts();
 
-    if (loading) return <div>Loading post...</div>;
+    if (loading) return <div>Loading blog...</div>;
     if (error) return <div>Error: {error}</div>;
-    if (!posts || posts.length === 0) return <div>No posts found</div>;
+    if (!blogs || blogs.length === 0) return <div>No blogs found</div>;
     
     return (
         <div className="bg-beige min-h-screen">
             <HomeCarousel />
             <div className="margin min-h-screen flex flex-col justify-center items-center text-2xl p-5">
-                {posts.slice(0, 3).map((post, index) => (
+                {blogs.slice(0, 3).map((blog, index) => (
                     <article key={index} className={`flex ${index === 1 ? 'flex-row-reverse' : ''}`}>
                         <div>
-                            <h2>{post.frontmatter.title}</h2>
-                            <p>{new Date(post.frontmatter.date).toLocaleDateString()}</p>
-                            {post.content.split(/\s+/).length > 150
-                                ? post.content.split(/\s+/).slice(0, 150).join(' ') + '...'
-                                : post.content}
+                            <h2>{blog.frontmatter.title}</h2>
+                            <p>{new Date(blog.frontmatter.date).toLocaleDateString()}</p>
+                            {blog.content.split(/\s+/).length > 150
+                                ? blog.content.split(/\s+/).slice(0, 150).join(' ') + '...'
+                                : blog.content}
                             <br />
-                            <button className="cursor-pointer underline" onClick={() => navigate(`/IndvBlog/${post.slug}`)}> Read more</button>
+                            <button className="cursor-pointer underline" onClick={() => navigate(`/IndvBlog/${blog.slug}`)}> Read more</button>
                         </div>
                         
-                        {post.frontmatter.thumbnail && (
+                        {blog.frontmatter.thumbnail && (
                             <img 
-                            src={post.frontmatter.thumbnail} 
-                            alt={post.frontmatter.title}
+                            src={blog.frontmatter.thumbnail} 
+                            alt={blog.frontmatter.title}
                             onError={(e) => {
                                 e.target.style.display = 'none';
-                                console.error('Failed to load image:', post.frontmatter.thumbnail);
+                                console.error('Failed to load image:', blog.frontmatter.thumbnail);
                             }}
                             className="place-self-center"
                             />
