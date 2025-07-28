@@ -24,7 +24,7 @@ export default function useBlogPosts () {
       try {
         setLoading(true);
         // Updated glob import syntax
-        const markdownFiles = import.meta.glob('/src/pages/content/*.md', {
+        const markdownFiles = import.meta.glob('/src/pages/blogs/*.md', {
           query: '?raw',
           import: 'default',
           eager: false
@@ -47,7 +47,7 @@ export default function useBlogPosts () {
                   thumbnail: getImagePath(frontmatter.thumbnail)
                 },
                 content,
-                slug: path.replace('/src/pages/content/', '').replace('.md', '')
+                slug: path.replace('/src/pages/blogs/', '').replace('.md', '')
               };
             } catch (fileErr) {
               console.error(`Error processing ${path}:`, fileErr);
