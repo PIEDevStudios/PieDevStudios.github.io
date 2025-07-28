@@ -45,8 +45,8 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Trailer", name: "trailer", widget: "string", required: false  }
       - { label: "Steam Link", name: "link", widget: "string", required: false }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" } 
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" } 
       - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Features", name: "features", widget: "markdown" }
-      - { label: "Showcase Images", name: "images", widget: "image", allow_multiple: true, required: false }
-      - { label: "Image Carousel", name: "imageCarousel", widget: "image", allow_multiple: true, required: false }
+      - { label: "Showcase Images", name: "images", widget: "image", multiple: true, required: false }
+      - { label: "Image Carousel", name: "imageCarousel", widget: "image", multiple: true, required: false }
