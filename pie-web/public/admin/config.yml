@@ -33,7 +33,8 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" } 
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false} 
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false} 
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "games" # Used in routes
     label: "Games" # Used in the UI
@@ -43,6 +44,9 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "games" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Trailer", name: "trailer", widget: "string", required: false  }
+      - { label: "Steam Link", name: "link", widget: "string", required: false }
       - { label: "Featured Image", name: "thumbnail", widget: "image" } 
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Image Carousel", name: "images", widget: "image", allow_multiple: true, required: false }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Features", name: "features", widget: "markdown" }
+      - { label: "Showcase Images", name: "images", widget: "image", allow_multiple: true, required: false }
+      - { label: "Image Carousel", name: "imageCarousel", widget: "image", allow_multiple: true, required: false }
