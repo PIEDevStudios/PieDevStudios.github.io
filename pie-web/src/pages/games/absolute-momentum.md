@@ -1,6 +1,7 @@
 ---
 layout: games
 title: ABSOLUTE MOMENTUM
+released: true
 trailer: JM2TsM6aMdw
 link: https://store.steampowered.com/app/3810400/Absolute_Momentum/
 thumbnail: pie-web/public/assets/absmom_banner.jpg
