@@ -9,6 +9,7 @@ const Games = lazy(() => import('./pages/Games.jsx'));
 const Blog = lazy(() => import('./pages/Blog.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
 const IndvBlog = lazy(() => import('./pages/IndvBlog.jsx'));
+const IndvGames = lazy(() => import('./pages/IndvGames.jsx'));
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/Blog' element={<Blog />} />
         <Route path='/About' element={<About />} />
         <Route path='/IndvBlog/:slug' element={<IndvBlog />} />
+        <Route path='IndvGames/:slug' element={<IndvGames />} />
       </Routes>
       <Footer />
     </Router>
