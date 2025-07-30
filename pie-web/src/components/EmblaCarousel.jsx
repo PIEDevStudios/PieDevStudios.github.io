@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { usePrevNextButtons } from '../hooks/EmblaCarouselArrowButtons';
-import '../pages/embla.css'; // Make sure this import path is correct
+import '../pages/embla.css';
 
 const EmblaCarousel = (props) => {
   const { games, options, home } = props;
@@ -11,15 +11,12 @@ const EmblaCarousel = (props) => {
   ]);
 
   const {
-    prevBtnDisabled,
-    nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick
   } = usePrevNextButtons(emblaApi);
 
   useEffect(() => {
     if (emblaApi) {
-      // Reinit when games change
       emblaApi.reInit();
     }
   }, [games, emblaApi]);
@@ -62,7 +59,6 @@ const EmblaCarousel = (props) => {
           <button
             className="embla__button embla__button--prev"
             onClick={onPrevButtonClick}
-            disabled={prevBtnDisabled}
           >
             <svg viewBox="0 0 24 24">
               <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
@@ -71,7 +67,6 @@ const EmblaCarousel = (props) => {
           <button
             className="embla__button embla__button--next"
             onClick={onNextButtonClick}
-            disabled={nextBtnDisabled}
           >
             <svg viewBox="0 0 24 24">
               <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
