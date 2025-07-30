@@ -1,58 +1,86 @@
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
-import { useAutoplay } from '../hooks/EmblaCarouselAutoplay.jsx'
-import {
-  NextButton,
-  PrevButton,
-  usePrevNextButtons
-} from '../hooks/EmblaCarouselArrowButtons.jsx'
+import { useEffect } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import { usePrevNextButtons } from '../hooks/EmblaCarouselArrowButtons';
+import '../pages/embla.css'; // Make sure this import path is correct
 
 const EmblaCarousel = (props) => {
-  const { game, options } = props
+  const { games, options, home } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: true, delay: 3000, stopOnInteraction: false})
-  ])
+    Autoplay({ delay: 5000, stopOnInteraction: false })
+  ]);
 
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick
-  } = usePrevNextButtons(emblaApi)
+  } = usePrevNextButtons(emblaApi);
 
-  const { onAutoplayButtonClick } =
-    useAutoplay(emblaApi)
+  useEffect(() => {
+    if (emblaApi) {
+      // Reinit when games change
+      emblaApi.reInit();
+    }
+  }, [games, emblaApi]);
 
   return (
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {game?.frontmatter?.imageCarousel?.map((img, index) => (
-            <div className="embla__slide" key={index}>
-            <img 
-                src={img} 
-                alt={`Game screenshot ${index + 1}`}
-                className="w-full h-full object-cover"
-            />
-            </div>
-          ))}
+          {home ? (
+            games.map((game, index) => (
+              <div className='embla__slide' key={index}>
+                {game.frontmatter.thumbnail && (
+                  <img 
+                    src={game.frontmatter.thumbnail} 
+                    alt={game.frontmatter.title}
+                    className="w-full max-h-96 object-contain"
+                    loading="eager"
+                  />
+                )}
+                {game.frontmatter.description}
+              </div>
+            ))
+          ) : (
+            games[0]?.frontmatter?.imageCarousel?.map((img, index) => (
+              <div className="embla__slide" key={index}>
+                <img 
+                  src={img} 
+                  alt={`Game screenshot ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            ))
+          )}
         </div>
       </div>
 
-      <div className="embla__controls background-white">
-        <div className="embla__buttons">
-          <PrevButton
-            onClick={() => onAutoplayButtonClick(onPrevButtonClick)}
+      {games.length > 1 && (
+        <div className="embla__controls">
+          <button
+            className="embla__button embla__button--prev"
+            onClick={onPrevButtonClick}
             disabled={prevBtnDisabled}
-          />
-          <NextButton
-            onClick={() => onAutoplayButtonClick(onNextButtonClick)}
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+            </svg>
+          </button>
+          <button
+            className="embla__button embla__button--next"
+            onClick={onNextButtonClick}
             disabled={nextBtnDisabled}
-          />
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+            </svg>
+          </button>
         </div>
-      </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default EmblaCarousel;

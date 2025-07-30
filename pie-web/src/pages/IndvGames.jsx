@@ -1,5 +1,5 @@
-import useGamePosts from "../hooks/useGamePosts";
 import { useParams } from 'react-router-dom';
+import useGamePosts from "../hooks/useGamePosts";
 import EmblaCarousel from "../components/EmblaCarousel.jsx";
 import './embla.css';
 
@@ -50,11 +50,8 @@ function IndvGames () {
                   </div>
                 </div>
 
-                {game?.frontmatter?.imageCarousel && (
-                    <EmblaCarousel game={game} options={OPTIONS} />
-                )}
+                <EmblaCarousel games={games} home={false} options={OPTIONS} />
             </div>
-
         </div>
     )
 }

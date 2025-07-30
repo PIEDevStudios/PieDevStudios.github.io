@@ -31,7 +31,6 @@ function Games () {
                         ))}
                     </section>
                 )}
-
             </div>
         </div>
     );
