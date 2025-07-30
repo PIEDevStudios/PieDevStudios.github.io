@@ -15,7 +15,14 @@ function Games () {
     return (
         <div className="bg-brown min-h-screen">
             <div className="margin bg-beige min-h-screen min-w-[20vh]">
-                {/* Released Games Section */}
+                {unreleasedGames.length > 0 && (
+                    <section className="mb-12">
+                        <h1 className="text-2xl font-bold p-5">Coming Soon</h1>
+                        {unreleasedGames.map((game, index) => (
+                            <GameCard key={index} game={game} index={index} navigate={navigate} />
+                        ))}
+                    </section>
+                )}
                 {releasedGames.length > 0 && (
                     <section className="mb-12">
                         <h1 className="text-2xl font-bold p-5">Released Games</h1>
@@ -25,15 +32,6 @@ function Games () {
                     </section>
                 )}
 
-                {/* Unreleased Games Section */}
-                {unreleasedGames.length > 0 && (
-                    <section className="mb-12">
-                        <h1 className="text-2xl font-bold p-5">Coming Soon</h1>
-                        {unreleasedGames.map((game, index) => (
-                            <GameCard key={index} game={game} index={index} navigate={navigate} />
-                        ))}
-                    </section>
-                )}
             </div>
         </div>
     );
