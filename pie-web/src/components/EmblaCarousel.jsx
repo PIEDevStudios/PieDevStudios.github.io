@@ -2,9 +2,11 @@ import { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { usePrevNextButtons } from '../hooks/EmblaCarouselArrowButtons';
+import { useNavigate } from 'react-router';
 import '../pages/embla.css';
 
 const EmblaCarousel = (props) => {
+  const navigate = useNavigate(); 
   const { games, options, home } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ delay: 5000, stopOnInteraction: false })
@@ -36,7 +38,23 @@ const EmblaCarousel = (props) => {
                     loading="eager"
                   />
                 )}
-                {game.frontmatter.description}
+                <div className='flex flex-col'> 
+                  <div> {game.frontmatter.title} </div>
+                  <div className='pl-2'>
+                    <div> {game.frontmatter.description} </div>
+                    <button className='cursor-pointer self-start underline' 
+                      onClick={() => navigate(`/IndvGames/${game.slug}`)} >
+                      More info
+                    </button>                    
+                  </div>
+                  {game.frontmatter.link && (
+                      <a href={game.frontmatter.link} target="_blank" rel="noopener noreferrer" className="no-underline">
+                          <button className="bg-[#FB62AE] text-white p-3 rounded-lg hover:bg-[#F95BC2] transition-colors cursor-pointer"> WISHLIST </button>
+                      </a>
+                  )} 
+                </div>
+                
+                
               </div>
             ))
           ) : (

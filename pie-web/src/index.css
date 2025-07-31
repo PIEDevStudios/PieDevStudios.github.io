@@ -6,6 +6,7 @@
 }
 :root {
   font-family: kufam, Montserrat, sans-serif;
+  color: #724C2A;
 }
 
 .bg-beige {
@@ -33,5 +34,5 @@
 }
 
 .margin {
-  margin-inline: 20vw;
+  margin-inline: clamp(100px, 20vw, 2000px);
 }
