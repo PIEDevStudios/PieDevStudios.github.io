@@ -5,7 +5,7 @@ released: false
 trailer: JM2TsM6aMdw
 link: https://store.steampowered.com/app/3810400/Absolute_Momentum/
 thumbnail: pie-web/public/assets/absmom_banner.jpg
-description: \    Get ready to sprint, jump, slide, and wall run your way in
+description: Get ready to sprint, jump, slide, and wall run your way in
   Absolute Momentum. Race through beautiful environments as you find hidden
   passages and alternate paths utilizing every parkour technique in your
   disposal. Can you maintain Absolute Momentum?

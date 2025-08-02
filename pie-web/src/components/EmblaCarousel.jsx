@@ -25,35 +25,39 @@ const EmblaCarousel = (props) => {
 
   return (
     <div className="embla flex place-content-center relative text-white">
-      
       <div className="bg-[#ACA17C] overflow-hidden" ref={emblaRef}>
         <div className="flex touch-pan-y touch-pinch-zoom z-501">
           {home ? (
             games.map((game, index) => (
-              <div className='embla__slide ' key={index}>
+              // embla__slide
+              <div className='flex w-full embla__slide' key={index}>
                 {game.frontmatter.thumbnail && (
                   <img 
                     src={game.frontmatter.thumbnail} 
                     alt={game.frontmatter.title}
-                    className="max-h-225 object-contain"
+                    className="max-h-225 object-contain basis-[3/4]"
                     loading="eager"
                   />
                 )}
                 <div className='absolute bottom-0 h-1/4 w-full bg-gradient-to-t from-[#ACA17C] via-30% from-0.5% z-1'/>
-                <div className='relative z-2 flex flex-col gap-5 p-20 max-w-[30vw]'> 
-                  <div className='font-lg font-bold'> {game.frontmatter.title} </div>
-                  <div className='pl-8 font-xs flex flex-col gap-10'>
-                    <div> {game.frontmatter.description} </div>
-                    <button className='cursor-pointer self-start font-bold underline' 
-                      onClick={() => navigate(`/IndvGames/${game.slug}`)} >
-                      More info
-                    </button>                    
+                <div className='z-2 p-20 w-full basis-[1/4] border border-black'> 
+                  <div className='flex flex-col justify-between h-full'>
+                    <div className='flex flex-col gap-10'>
+                      <div className='font-lg font-bold'> {game.frontmatter.title} </div>
+                      <div className='pl-8 font-xs flex flex-col gap-10 max-w-[40rem]'>
+                        <div> {game.frontmatter.description} </div>
+                        <button className='cursor-pointer self-start font-bold underline' 
+                          onClick={() => navigate(`/IndvGames/${game.slug}`)} >
+                          More info
+                        </button>                    
+                      </div>
+                    </div>
+                    {game.frontmatter.link && (
+                        <a href={game.frontmatter.link} target="_blank" rel="noopener noreferrer" className="no-underline flex justify-center">
+                            <button className="bg-[#DB4598] text-white font-bold p-5 px-15 rounded-[1.25rem] hover:bg-[#F95BC2] transition-colors shadow-2xl cursor-pointer font-sm mb-25"> WISHLIST </button>
+                        </a>
+                    )} 
                   </div>
-                  {game.frontmatter.link && (
-                      <a href={game.frontmatter.link} target="_blank" rel="noopener noreferrer" className="no-underline flex justify-center">
-                          <button className="bg-[#DB4598] text-white font-bold p-5 px-15 rounded-[1.25rem] hover:bg-[#F95BC2] transition-colors shadow-2xl cursor-pointer font-sm"> WISHLIST </button>
-                      </a>
-                  )} 
                 </div>
               </div>
             ))

@@ -12,7 +12,7 @@ features: >-
   A multiplayer kitchen-simulator game where you can compete with your friends
   to find how who is the better chef! Create 10+ different types of pastries
   including: Waffles, Croissants, Pancakes and
-  more![](https://store.steampowered.com/app/3056870/Solar_Sweets/#app_reviews_hash)
+  more!
 
 
   * Peak Game
