@@ -36,3 +36,28 @@
 .margin {
   margin-inline: clamp(100px, 20vw, 2000px);
 }
+
+/* Font size: 60px for screen width 2560px */
+.font-xl {
+  font-size: clamp(2.25rem, 2.34vw, 6rem);
+}
+
+/* Font size: 35px for screen width 2560px */
+.font-lg {
+  font-size: clamp(1.5rem, 1.36vw, 3.75rem);
+}
+
+/* Font size: 30px for screen width 2560px */
+.font-md {
+  font-size: clamp(1.25rem, 1.17vw, 3rem);
+}
+
+/* Font size: 25px for screen width 2560px */
+.font-sm {
+  font-size: clamp(1.125rem, 0.98vw, 2.25rem);
+}
+
+/* Font size: 20px for screen width 2560px */
+.font-xs {
+  font-size: clamp(1rem, 0.78vw, 1.875rem);
+}

@@ -3,7 +3,7 @@ import pieLogo from '/assets/piedevlogo.png';
 
 function Navigation () {
     return (
-        <div className="bg-orange py-4 sticky top-0 ">
+        <div className="bg-orange py-4 sticky top-0 z-50000">
             <div className="margin text-dbrown flex justify-between items-center">
                 <Link to="/"><img src={pieLogo} className="aspect-square w-[2.5vw]"/></Link>
                 <div className="flex gap-4 text-xl">
