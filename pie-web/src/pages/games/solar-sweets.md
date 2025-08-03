@@ -1,6 +1,6 @@
 ---
 layout: games
-title: SOLAR SWEETS
+title: Solar Sweets
 released: true
 trailer: d-PGUatAUbA
 link: https://store.steampowered.com/app/3056870/Solar_Sweets/

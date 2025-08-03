@@ -1,6 +1,6 @@
 ---
 layout: games
-title: ABSOLUTE MOMENTUM
+title: Absolute Momentum
 released: false
 trailer: JM2TsM6aMdw
 link: https://store.steampowered.com/app/3810400/Absolute_Momentum/

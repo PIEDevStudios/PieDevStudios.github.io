@@ -24,38 +24,51 @@ const EmblaCarousel = (props) => {
   }, [games, emblaApi]);
 
   return (
-    <div className="embla flex place-content-center relative text-white">
+    <div className="embla relative flex place-content-center text-white">
       <div className="bg-[#ACA17C] overflow-hidden" ref={emblaRef}>
         <div className="flex touch-pan-y touch-pinch-zoom z-501">
           {home ? (
             games.map((game, index) => (
-              // embla__slide
-              <div className='flex w-full embla__slide' key={index}>
+              <div className='embla__slide flex flex-col pr-20 
+              sm:pr-0 xl:pr-20 2xl:pr-30 sm:flex-row' key={index}>
                 {game.frontmatter.thumbnail && (
-                  <img 
-                    src={game.frontmatter.thumbnail} 
-                    alt={game.frontmatter.title}
-                    className="max-h-225 object-contain basis-[3/4]"
-                    loading="eager"
-                  />
+                  <div className="relative 
+                    sm:basis-5/9 2xl:basis-5/7">
+                    <img 
+                      src={game.frontmatter.thumbnail} 
+                      alt={game.frontmatter.title}
+                      className="w-full h-full max-h-[73vh] object-contain place-content-start min-h-[300px]"
+                      loading="eager"
+                    />
+                    <div className='absolute bottom-0 h-1/4 w-full bg-gradient-to-t from-[#ACA17C] via-30% from-0.5% z-1'/>
+                  </div>
                 )}
-                <div className='absolute bottom-0 h-1/4 w-full bg-gradient-to-t from-[#ACA17C] via-30% from-0.5% z-1'/>
-                <div className='z-2 p-20 w-full basis-[1/4] border border-black'> 
-                  <div className='flex flex-col justify-between h-full'>
-                    <div className='flex flex-col gap-10'>
-                      <div className='font-lg font-bold'> {game.frontmatter.title} </div>
-                      <div className='pl-8 font-xs flex flex-col gap-10 max-w-[40rem]'>
+                <div className='z-2 p-5 w-full bg-[#ACA17C] 
+                   md:p-10 xl:p-20 sm:basis-4/9 2xl:basis-2/7'> 
+                  <div className='flex flex-col justify-between h-full 
+                    sm:gap-0'>
+                    <div className='flex flex-col
+                    sm:gap-5 xl:gap-10'>
+                      <div className='font-lg font-bold
+                        sm:pl-0'> {game.frontmatter.title} </div>
+                      <div className='pl-8 font-xs flex flex-col gap-10 max-w-[40rem] 
+                        sm:gap-5 sm:pl-0 xl:pl-8 xl:gap-10'>
                         <div> {game.frontmatter.description} </div>
                         <button className='cursor-pointer self-start font-bold underline' 
                           onClick={() => navigate(`/IndvGames/${game.slug}`)} >
                           More info
-                        </button>                    
+                        </button>       
                       </div>
                     </div>
                     {game.frontmatter.link && (
+                      <div className="mt-4 md:mt-0">
                         <a href={game.frontmatter.link} target="_blank" rel="noopener noreferrer" className="no-underline flex justify-center">
-                            <button className="bg-[#DB4598] text-white font-bold p-5 px-15 rounded-[1.25rem] hover:bg-[#F95BC2] transition-colors shadow-2xl cursor-pointer font-sm mb-25"> WISHLIST </button>
+                            <button className="bg-[#DB4598] hover:bg-[#F95BC2] text-white font-sm font-bold mb-4 mt-1 rounded-[1vw] transition-colors shadow-xl/30 cursor-pointer   
+                             sm:p-3 xl:p-5 sm:px-8 xl:px-15 sm:mt-4 md:mt-6 xl:mb-20 2xl:mb-30 sm:font-xs"> 
+                              WISHLIST 
+                            </button>
                         </a>
+                      </div>
                     )} 
                   </div>
                 </div>

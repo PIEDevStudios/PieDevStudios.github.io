@@ -43,7 +43,7 @@ function Home() {
                     <article key={index} className="flex flex-col">
                        <div className={`flex gap-20 ${index === 1 ? 'flex-row-reverse text-end' : ''}`}>
                             <div >
-                                <h2 className='font-bold'>{blog.frontmatter.title}</h2> 
+                                <h2 className='font-bold font-xl'>{blog.frontmatter.title}</h2> 
                                 <p className='text-[#FF00AE] mb-10'>{new Date(blog.frontmatter.date).toLocaleDateString()}</p>
                                 <p className='text-justify'>
                                     {blog.content.split(/\s+/).length > 150
