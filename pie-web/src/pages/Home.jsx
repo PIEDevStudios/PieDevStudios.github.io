@@ -28,7 +28,7 @@ function Home() {
     if (!blogs || blogs.length === 0) return <div>No blogs found</div>;
 
     return (
-        <div className="bg-beige min-h-screen ">
+        <div className="bg-beige min-h-screen">
             {carouselReady && games.length > 0 && (
                 <div className="embla-container">
                     <EmblaCarousel 
@@ -38,20 +38,30 @@ function Home() {
                     />
                 </div>
             )}
-            <div className="margin min-h-screen flex flex-col justify-center items-center text-2xl p-5 px-10 gap-30">
+            <div className="flex flex-col justify-center items-center p-5 margin 
+                            sm:p-5 sm:px-10">
                 {blogs.slice(0, 3).map((blog, index) => (
                     <article key={index} className="flex flex-col">
-                       <div className={`flex gap-20 ${index === 1 ? 'flex-row-reverse text-end' : ''}`}>
-                            <div >
-                                <h2 className='font-bold font-xl'>{blog.frontmatter.title}</h2> 
-                                <p className='text-[#FF00AE] mb-10'>{new Date(blog.frontmatter.date).toLocaleDateString()}</p>
-                                <p className='text-justify'>
+                       <div className={`flex flex-col-reverse sm:gap-0
+                                        xl:gap-20 
+                                        ${index === 1 ? 'lg:flex-row-reverse lg:text-end' : ''}
+                                        lg:flex-row lg:gap-10`}>
+                            <div>
+                                <h2 className='font-bold font-xl
+                                               lg:mt-10
+                                               sm:mt-5'>
+                                    {blog.frontmatter.title}
+                                </h2> 
+                                <p className='font-md text-[#FF00AE] mb-10'>
+                                    {new Date(blog.frontmatter.date).toLocaleDateString()}
+                                </p>
+                                <p className='text-justify font-sm'>
                                     {blog.content.split(/\s+/).length > 150
                                     ? blog.content.split(/\s+/).slice(0, 150).join(' ') + '...'
                                     : blog.content}  
                                 </p>
                                 <br />
-                                <button className="cursor-pointer underline text-[#FF00AE]" onClick={() => navigate(`/IndvBlog/${blog.slug}`)}> Read more</button>
+                                <button className="cursor-pointer underline text-[#FF00AE] font-sm" onClick={() => navigate(`/IndvBlog/${blog.slug}`)}> Read more</button>
                             </div>
                             {blog.frontmatter.thumbnail && (
                                 <img 
@@ -61,7 +71,10 @@ function Home() {
                                     e.target.style.display = 'none';
                                     console.error('Failed to load image:', blog.frontmatter.thumbnail);
                                 }}
-                                className="place-self-center rounded-full border-7 border-[#FF00AE] w-[20vw]"
+                                className="bg-white w-20 h-full border-3 border-[#FF00AE] rounded-lg w-[100%] max-h-[50vh] mt-10 object-contain
+                                           xl:rounded-full xl:w-[20vw] xl:border-7
+                                           lg:place-self-center lg:w-[20vw] lg:h-100
+                                           md:border-5"
                                 />
                             )}
                         </div>

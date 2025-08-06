@@ -34,7 +34,13 @@
 }
 
 .margin {
-  margin-inline: clamp(100px, 20vw, 2000px);
+  margin-inline: clamp(10px, 20vw, 2000px);
+}
+
+@media only screen and (max-width: 640px) {
+   .margin{
+    margin-inline: 20px;
+   }
 }
 
 /* Font size: 60px for screen width 2560px */
@@ -54,10 +60,15 @@
 
 /* Font size: 25px for screen width 2560px */
 .font-sm {
-  font-size: clamp(1rem, 0.98vw, 2.25rem);
+  font-size: clamp(0.7rem, 0.95vw, 2.25rem);
 }
 
 /* Font size: 20px for screen width 2560px */
 .font-xs {
   font-size: clamp(0.875rem, 0.78vw, 1.875rem);
+}
+
+/* Font size: 10px for screen width 2560px */
+.font-xxs {
+  font-size: clamp(0.3rem, 0.20vw, 1.2rem);
 }

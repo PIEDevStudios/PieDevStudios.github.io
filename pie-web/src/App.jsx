@@ -15,7 +15,7 @@ function App() {
 
   return (
     <Router basename='/'>
-      <Navigation />
+      {/* <Navigation /> */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Games' element={<Games />} />
@@ -24,7 +24,7 @@ function App() {
         <Route path='/IndvBlog/:slug' element={<IndvBlog />} />
         <Route path='/IndvGames/:slug' element={<IndvGames />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   )
 }
