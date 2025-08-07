@@ -33,11 +33,16 @@
   color: #F3C45E;
 }
 
+.container {
+   width: 960px; 
+  margin: 0 auto;
+}
+
 .margin {
   margin-inline: clamp(10px, 20vw, 2000px);
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 700px) {
    .margin{
     margin-inline: 20px;
    }
@@ -65,10 +70,18 @@
 
 /* Font size: 20px for screen width 2560px */
 .font-xs {
-  font-size: clamp(0.875rem, 0.78vw, 1.875rem);
+  font-size: clamp(0.5rem, 0.78vw, 1.875rem);
 }
 
 /* Font size: 10px for screen width 2560px */
 .font-xxs {
   font-size: clamp(0.3rem, 0.20vw, 1.2rem);
+}
+
+.pielogo {
+  width: clamp(35px, 2.5vw, 200px);
+}
+
+.footerlogos {
+  width: clamp(20px, 2.5vw, 200px);
 }

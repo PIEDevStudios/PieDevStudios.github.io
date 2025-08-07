@@ -14,8 +14,8 @@ function IndvGames () {
     const game = games.find(b => b.slug === slug);
     if (!game) return <div>game not found</div>;
     return (
-        <div className="bg-brown min-h-screen">
-            <div className="margin bg-beige min-h-screen">
+        <div className="bg-brown">
+            <div className="margin bg-beige">
                 {game.frontmatter.thumbnail && (
                     <img 
                     src={game.frontmatter.thumbnail} 

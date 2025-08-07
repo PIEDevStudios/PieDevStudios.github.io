@@ -13,27 +13,31 @@ import Tiktok from '../assets/icons/tiktok';
 function Footer () {
     return (
         <div className="bottom-0 bg-orange p-4 flex">
-            <div className="margin flex justify-items-center justify-between align-items-center w-full px-10 n">
-                <div className='grid grid-flow-col sm:grid-rows-4 md:grid-rows-3 lg:grid-rows-2 gap-4'>
-                    <Discord />          
-                    <Steam /> 
-                    <Itch />
-                    <Spotify />
-                    <Bluesky />
-                    <X />
-                    <Youtube />
-                    <Instagram />
-                    <Tiktok />
+            <div className="margin flex justify-items-center justify-between items-center w-full px-0">
+                <div className='grid grid-flow-col gap-4 grid-rows-3
+                                sm:grid-rows-2 px-5'>
+                    <Discord width={"footerlogos"} />          
+                    <Steam width={"footerlogos"}/> 
+                    <Itch width={"footerlogos"}/>
+                    <Spotify width={"footerlogos"}/>
+                    <Bluesky width={"footerlogos"}/>
+                    <X width={"footerlogos"}/>
+                    <Youtube width={"footerlogos"}/>
+                    <Instagram width={"footerlogos"}/>
+                    <Tiktok width={"footerlogos"}/>
                 </div>
-                <Link to="/"><img src={pieLogo} className="aspect-square w-[5vw]"/></Link>
+                <Link to="/"><img src={pieLogo} className="pielogo aspect-square"/></Link>
                 <div className='justify-items-end'>
-                    <div className='flex gap-4 underline font-bold text-[#FA558C] text-[1vw]'> 
+                    <div className='grid grid-flow-col gap-1 underline font-bold text-[#FA558C] font-sm grid-rows-2
+                                    lg:gap-4
+                                    md:gap-3
+                                    sm:gap-2 sm:grid-rows-none'> 
                         <Link className="hover:text-white" to="/"> Home </Link>
                         <Link className="hover:text-white" to="/Games"> Games </Link>
                         <Link className="hover:text-white" to="/Blog"> Blog </Link>
                         <Link className="hover:text-white" to="/About"> About </Link>
                     </div>
-                    <div className='text-white text-[0.8vw] mt-2'>
+                    <div className='text-white font-xs mt-2 text-wrap max-w-[100px] sm:max-w-full'>
                         Copyright © 2025 PIEDev Studios
                     </div>                    
                 </div>
