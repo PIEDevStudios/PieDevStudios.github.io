@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import useBlogPosts from '../hooks/useBlogPosts';
 import useGamePosts from "../hooks/useGamePosts";
 import EmblaCarousel from "../components/EmblaCarousel.jsx";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 function Home() {
     const OPTIONS = { loop: true };
@@ -55,10 +58,10 @@ function Home() {
                                 <p className='font-md text-[#FF00AE] mb-10'>
                                     {new Date(blog.frontmatter.date).toLocaleDateString()}
                                 </p>
-                                <p className='text-justify font-sm'>
-                                    {blog.content.split(/\s+/).length > 150
-                                    ? blog.content.split(/\s+/).slice(0, 150).join(' ') + '...'
-                                    : blog.content}  
+                                <p className='text-justify font-sm react-markdown-short'>
+                                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} disallowedElements={['img']}>
+                                        {blog.content}
+                                    </ReactMarkdown>
                                 </p>
                                 <br />
                                 <button className="cursor-pointer underline text-[#FF00AE] font-sm" onClick={() => navigate(`/IndvBlog/${blog.slug}`)}> Read more</button>
@@ -71,14 +74,12 @@ function Home() {
                                     e.target.style.display = 'none';
                                     console.error('Failed to load image:', blog.frontmatter.thumbnail);
                                 }}
-                                className="bg-white w-20 h-full border-3 border-[#FF00AE] rounded-lg w-[100%] max-h-[50vh] mt-10 object-contain
+                                className="bg-white w-20 h-full border-3 border-[#FF00AE] rounded-lg w-[100%] max-h-[50vh] mt-10 object-cover aspect-square
                                            xl:rounded-full xl:w-[20vw] xl:border-7
                                            lg:place-self-center lg:w-[20vw] lg:h-100
-                                           md:border-5"
-                                />
+                                           md:border-5"/>
                             )}
                         </div>
-
                     </article>
                 ))}
                 <Link className="text-[#FF00AE] font-bold font-md self-end mb-15" to="/Blog"> More Posts --&#x203A; </Link>

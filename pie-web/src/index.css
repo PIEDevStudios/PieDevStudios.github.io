@@ -219,3 +219,10 @@
 .react-markdown mark {
   background-color: #fef08a;
 }
+
+.react-markdown-short {
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* Show max 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
