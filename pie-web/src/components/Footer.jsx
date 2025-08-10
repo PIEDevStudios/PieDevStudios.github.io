@@ -12,7 +12,7 @@ import Tiktok from '../assets/icons/tiktok';
 
 function Footer () {
     return (
-        <div className="bottom-0 bg-orange p-4 flex">
+        <div className="flex bottom-0 bg-orange p-4 py-10">
             <div className="margin flex justify-items-center justify-between items-center w-full px-0">
                 <div className='grid grid-flow-col gap-4 grid-rows-3
                                 sm:grid-rows-2 px-5'>

@@ -24,7 +24,7 @@ export default function useBlogPosts () {
       try {
         setLoading(true);
         // Updated glob import syntax
-        const markdownFiles = import.meta.glob('/src/pages/blogs/*.md', {
+        const markdownFiles = import.meta.glob('/src/pages/blogs/*.mdx', {
           query: '?raw',
           import: 'default',
           eager: false
@@ -49,7 +49,7 @@ export default function useBlogPosts () {
                   featuredImage: getImagePath(frontmatter.featuredImage)
                 },
                 content,
-                slug: path.replace('/src/pages/blogs/', '').replace('.md', ''),
+                slug: path.replace('/src/pages/blogs/', '').replace('.mdx', ''),
                 timestamp: dateObj.getTime()
               };
             } catch (fileErr) {

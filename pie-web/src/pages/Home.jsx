@@ -38,7 +38,7 @@ function Home() {
                     />
                 </div>
             )}
-            <div className="flex flex-col justify-center items-center p-5 margin 
+            <div className="flex flex-col justify-center items-center p-5 px-10 margin 
                             sm:p-5 sm:px-10">
                 {blogs.slice(0, 3).map((blog, index) => (
                     <article key={index} className="flex flex-col">
@@ -81,7 +81,7 @@ function Home() {
 
                     </article>
                 ))}
-                <Link className="text-[#FF00AE] font-bold self-end mb-15" to="/Blog"> More Posts --&#x203A; </Link>
+                <Link className="text-[#FF00AE] font-bold font-md self-end mb-15" to="/Blog"> More Posts --&#x203A; </Link>
             </div>
         </div>
     )

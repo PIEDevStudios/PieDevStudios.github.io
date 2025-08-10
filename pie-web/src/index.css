@@ -21,6 +21,10 @@
   background-color: #F3C45E;
 }
 
+.bg-lightbeige {
+  background-color: #FBF4DD;
+}
+
 .text-beige {
   color: #F5E4AD;
 }
@@ -34,9 +38,22 @@
 }
 
 .container {
-   width: 960px; 
+  width: 1440px; 
   margin: 0 auto;
 }
+
+@media only screen and (max-width: 1920px) {
+   .container{
+      width: 1080px;
+   }
+}
+
+@media only screen and (max-width: 700px) and (min-width: 300px) {
+   .container {
+      width: 100%;
+   }
+  }
+
 
 .margin {
   margin-inline: clamp(10px, 20vw, 2000px);
@@ -44,13 +61,13 @@
 
 @media only screen and (max-width: 700px) {
    .margin{
-    margin-inline: 20px;
+    margin-inline: 0px;
    }
 }
 
 /* Font size: 60px for screen width 2560px */
 .font-xl {
-  font-size: clamp(1.875rem, 2.34vw, 6rem);
+  font-size: clamp(1.75rem, 2.34vw, 6rem);
 }
 
 /* Font size: 35px for screen width 2560px */
@@ -70,7 +87,7 @@
 
 /* Font size: 20px for screen width 2560px */
 .font-xs {
-  font-size: clamp(0.5rem, 0.78vw, 1.875rem);
+  font-size: clamp(0.65rem, 0.78vw, 1.875rem);
 }
 
 /* Font size: 10px for screen width 2560px */
@@ -79,9 +96,126 @@
 }
 
 .pielogo {
-  width: clamp(35px, 2.5vw, 200px);
+  width: clamp(40px, 3vw, 200px);
 }
 
 .footerlogos {
   width: clamp(20px, 2.5vw, 200px);
+}
+
+.react-markdown h1 {
+  font-size: clamp(1.875rem, 2.34vw, 6rem);
+  font-weight: 700;
+  padding-block: 1rem 0;
+}
+
+.react-markdown h2 {
+  font-size: clamp(1.75rem, 2vw, 4.75rem);
+  font-weight: 700;
+  padding-block: 0.75rem 0;
+}
+
+.react-markdown h3 {
+  font-size: clamp(1.125rem, 1.75vw, 3rem);
+  font-weight: 600;
+  padding-block: 0.5rem 0;
+}
+
+.react-markdown h4 {
+  font-size: clamp(1.125rem, 1.35vw, 3rem);
+  font-weight: 500;
+  padding-block: 0.25rem 0;
+}
+
+
+.react-markdown h5 {
+  font-size: clamp(1.125rem, 1.17vw, 3rem);
+  font-weight: 500;
+  padding-block: 0.25rem 0;
+}
+
+.react-markdown h6 {
+  font-size: clamp(1.125rem, 1.17vw, 3rem);
+  font-weight: 500;
+  padding-block: 0.25rem 0;
+  opacity: 80%;
+}
+
+.react-markdown ul {
+  font-size: clamp(0.7rem, 0.95vw, 2.25rem);
+  list-style-type: disc;
+  padding-left: 2rem;
+  padding-block: 1rem;
+}
+
+.react-markdown ol {
+  font-size: clamp(0.7rem, 0.95vw, 2.25rem);
+  list-style-type: decimal;
+  padding-left: 3rem;
+  padding-block: 1rem;
+}
+
+.react-markdown p {
+  font-size: clamp(0.7rem, 0.95vw, 2.25rem);
+  padding-block: 0.5rem;
+}
+
+.react-markdown code {
+  font-size: clamp(0.7rem, 0.80vw, 2.25rem);
+  padding-block: 0.5rem;
+}
+
+.react-markdown blockquote {
+  font-size: clamp(0.7rem, 0.95vw, 2.25rem);
+  border-left: 4px solid #FF00AE;
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.react-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.react-markdown th {
+  background-color: #F3C45E; /* bg-gray-100 */
+  text-align: left;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 2px solid #F3C45E; /* border-gray-200 */
+}
+
+.react-markdown td {
+  padding: 0.5rem 1rem;
+  border:2px solid #F3C45E;
+}
+
+.react-markdown abbr[title] {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+  text-decoration: none;
+}
+
+.react-markdown sub {
+  font-size: clamp(0.65rem, 0.78vw, 1.875rem);
+  vertical-align: sub;
+}
+
+.react-markdown sup {
+  font-size: clamp(0.65rem, 0.78vw, 1.875rem);
+  vertical-align: super;
+}
+
+.react-markdown kbd {
+  font-family: monospace;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem;
+  font-size: 0.75em;
+}
+
+.react-markdown mark {
+  background-color: #fef08a;
 }

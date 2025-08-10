@@ -117,11 +117,12 @@ const EmblaCarousel = (props) => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex touch-pan-y touch-pinch-zoom z-501">
               {games[0]?.frontmatter?.imageCarousel?.map((img, index) => (
-                <div className="embla__slide p-20" key={index}>
+                <div className="embla__slide px-10 py-5
+                                sm:px-50 sm:py-10" key={index}>
                   <img 
                     src={img} 
                     alt={`Game screenshot ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-lg bg-white aspect-video"
                     loading="eager"
                   />
                 </div>
@@ -129,23 +130,25 @@ const EmblaCarousel = (props) => {
             </div>
           </div>
           {games.length > 1 && (
-            <div className="absolute flex bottom-[50%] m-5 opacity-75 self-center w-full z-501">
+            <div className="absolute flex bottom-[50%] m-5 opacity-75 place-self-center w-full z-501">
               <button
-                className="embla__button absolute left-0"
+                className="embla__button absolute left-0
+                          sm:left-4"
                 onClick={onPrevButtonClick}
               >
-                <svg viewBox="-5 0 24 24" className='w-[32px] md:w-[64px]'> 
-                  <g transform="translate(-421.000000, -1195.000000)" fill="#ffffff"> 
+                <svg viewBox="-5 0 24 24" className='w-[24px] md:w-[32px]'> 
+                  <g transform="translate(-421.000000, -1195.000000)" fill="#FF00AE"> 
                     <path d="M423.429,1206.98 L434.686,1196.7 C435.079,1196.31 435.079,1195.67 434.686,1195.28 C434.293,1194.89 433.655,1194.89 433.263,1195.28 L421.282,1206.22 C421.073,1206.43 420.983,1206.71 420.998,1206.98 C420.983,1207.26 421.073,1207.54 421.282,1207.75 L433.263,1218.69 C433.655,1219.08 434.293,1219.08 434.686,1218.69 C435.079,1218.29 435.079,1217.66 434.686,1217.27 L423.429,1206.98" id="chevron-left" sketch:type="MSShapeGroup"/> 
                   </g>
                 </svg>
               </button>
               <button
-                className="embla__button absolute right-0"
+                className="embla__button absolute right-0
+                          sm:right-4"
                 onClick={onNextButtonClick}
               >
-                <svg viewBox="-5 0 24 24" className='w-[32px] md:w-[64px]'> 
-                  <g transform="translate(-473.000000, -1195.000000)" fill="#ffffff"> 
+                <svg viewBox="-5 0 24 24" className='w-[24px] md:w-[32px]'> 
+                  <g transform="translate(-473.000000, -1195.000000)" fill="#FF00AE"> 
                     <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22"/> 
                   </g>
                 </svg>

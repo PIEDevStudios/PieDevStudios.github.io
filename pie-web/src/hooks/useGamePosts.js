@@ -24,7 +24,7 @@ export default function useGamePosts () {
       try {
         setLoading(true);
         // Updated glob import syntax
-        const markdownFiles = import.meta.glob('/src/pages/games/*.md', {
+        const markdownFiles = import.meta.glob('/src/pages/games/*.mdx', {
           query: '?raw',
           import: 'default',
           eager: false
@@ -49,7 +49,7 @@ export default function useGamePosts () {
                   imageCarousel: frontmatter.images ? frontmatter.images.map(imgObj => getImagePath(imgObj.image)) : [],
                 },
                 content,
-                slug: path.replace('/src/pages/games/', '').replace('.md', ''),
+                slug: path.replace('/src/pages/games/', '').replace('.mdx', ''),
               };
             } catch (fileErr) {
               console.error(`Error processing ${path}:`, fileErr);
