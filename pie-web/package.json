@@ -6,8 +6,8 @@
   "homepage": "https://kaleyvuong.github.io/PieDevStudios",
   "scripts": {
     "dev": "vite",
-    "predeploy": "rm -rf dist && vite build",
-    "deploy": "gh-pages --dist dist --clean --no-push --dotfiles",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages --dist dist --no-push --dotfiles",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
