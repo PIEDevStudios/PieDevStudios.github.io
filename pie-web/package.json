@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages --dist dist --add --no-push",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -20,6 +20,7 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "gray-matter": "^4.0.3",
+    "hash-router": "^0.4.0",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
