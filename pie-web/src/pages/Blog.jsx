@@ -12,7 +12,7 @@ const Blog = () => {
   return (
     <div className="bg-beige min-h-screen">
       <div className="margin">
-        <h1 className="font-bold font-xl text-[#FF00AE] pt-10"> THE BLOG </h1>
+        <h1 className="font-bold font-xl text-[#FF00AE] pt-10 px-10" > THE BLOG </h1>
         <div className='grid gap-4 grid-cols-1 p-10
                         2xl:grid-cols-4
                         lg:grid-cols-3
