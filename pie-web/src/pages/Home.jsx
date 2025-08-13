@@ -42,7 +42,7 @@ function Home() {
                 </div>
             )}
             <div className="flex flex-col justify-center items-center p-5 px-10 margin 
-                            sm:p-5 sm:px-10">
+                            sm:p-5 ">
                 {blogs.slice(0, 3).map((blog, index) => (
                     <article key={index} className="flex flex-col">
                        <div className={`flex flex-col-reverse sm:gap-0
@@ -74,7 +74,7 @@ function Home() {
                                     e.target.style.display = 'none';
                                     console.error('Failed to load image:', blog.frontmatter.thumbnail);
                                 }}
-                                className="bg-white w-20 h-full border-3 border-[#FF00AE] rounded-lg w-[100%] max-h-[50vh] mt-10 object-cover aspect-square
+                                className="flex bg-white w-20 h-full border-3 border-[#FF00AE] rounded-lg w-[75vw] max-h-[50vh] mt-10 object-cover aspect-square self-center
                                            xl:rounded-full xl:w-[20vw] xl:border-7
                                            lg:place-self-center lg:w-[20vw] lg:h-100
                                            md:border-5"/>
