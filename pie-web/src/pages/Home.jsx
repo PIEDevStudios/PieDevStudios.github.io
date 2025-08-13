@@ -25,10 +25,10 @@ function Home() {
         }
     }, [games, gamesLoading]);
 
-    if (loading || gamesLoading) return <div>Loading...</div>;
+    // if (loading || gamesLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (gamesError) return <div>Error: {gamesError}</div>;
-    if (!blogs || blogs.length === 0) return <div>No blogs found</div>;
+    // if (!blogs || blogs.length === 0) return <div>No blogs found</div>;
 
     return (
         <div className="bg-beige min-h-screen">

@@ -54,7 +54,6 @@
    }
   }
 
-
 .margin {
   margin-inline: clamp(10px, 20vw, 2000px);
 }
@@ -63,6 +62,10 @@
    .margin{
     margin-inline: 0px;
    }
+}
+
+.font-loading {
+  font-size: clamp(1.75rem, 5vw, 6rem);
 }
 
 /* Font size: 60px for screen width 2560px */
@@ -232,4 +235,59 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   max-width: 75vw;
+}
+
+.loading span {
+  display: inline-block;
+  animation: loading 1s ease-in-out infinite;
+  animation-delay: calc(.15s * var(--i));
+  
+}
+
+@keyframes loading {
+  0%,40%,100% {
+    transform: translateY(0);
+    
+  }
+  0% {
+    opacity: 0.60;
+  }
+  15% {
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-animation {
+  height: 0;
+  min-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  animation: expandPage 1s ease-out forwards;
+}
+
+@keyframes expandPage {
+  to {
+    height: 100vh;
+    min-height: 100vh;
+    opacity: 1;
+  }
+}
+
+/* Exit animation */
+.page-exit {
+  animation: collapsePage 1s ease-in forwards;
+}
+
+@keyframes collapsePage {
+  from {
+    height: 100vh;
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
 }
