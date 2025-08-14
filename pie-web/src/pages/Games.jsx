@@ -59,7 +59,7 @@ function GameCard({ game, index, navigate }) {
                 <div className="flex flex-col ml-4 items-center gap-10">
                     <p className="mb-4 font-xs">{game.frontmatter.description}</p>
                     <button 
-                        className='p-5 rounded-2xl bg-[#FB62AE] text-white cursor-pointer hover:bg-gray-100 transition-colors font-bold font-sm w-50 shadow-xl/40'
+                        className='p-5 rounded-2xl bg-[#FB62AE] text-white cursor-pointer transition-colors font-bold font-sm w-50 shadow-xl/40 hover:bg-white hover:text-[#FB62AE] '
                         onClick={() => navigate(`/IndvGames/${game.slug}`)}
                     >
                         SEE MORE
