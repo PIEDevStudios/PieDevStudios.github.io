@@ -23,15 +23,15 @@ jobs:
           cache-dependency-path: pie-web/package-lock.json
 
       - name: Install dependencies
-        working-directory: pie-web
+        working-directory: .
         run: npm ci
 
       - name: Build
-        working-directory: pie-web
+        working-directory: .
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: pie-web/dist
+          publish_dir: dist
