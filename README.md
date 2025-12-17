@@ -1,3 +1,17 @@
+# Commands to run project
+## npm install
+Updates all packages
+
+## npm run preview
+Runs the website locally when testing
+
+## npm run build
+Builds a version of the website
+
+## git push origin main
+Pushes a build of the website to github pages
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
