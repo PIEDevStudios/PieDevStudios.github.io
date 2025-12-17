@@ -23,11 +23,9 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        working-directory: .
         run: npm ci
 
       - name: Build
-        working-directory: .
         run: npm run build
 
       - name: Deploy to GitHub Pages
