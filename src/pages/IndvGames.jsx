@@ -18,6 +18,8 @@ function IndvGames () {
     const game = games.find(b => b.slug === slug);
     if (!game) return <div>game not found</div>;
 
+    const idx = games.findIndex(g => g.slug === slug);
+
     return (
         <div className="bg-brown">
             <div className="container bg-beige pb-10">
@@ -92,7 +94,8 @@ function IndvGames () {
                     </div>
                 </div>
 
-                <EmblaCarousel games={games} home={false} options={OPTIONS} />
+                
+                <EmblaCarousel games={games} selectedIndex={idx} home={false} options={OPTIONS} />
             </div>
         </div>
     )
