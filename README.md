@@ -2,11 +2,14 @@
 ## npm install
 Updates all packages
 
-## npm run preview
+## npm run dev
 Runs the website locally when testing
 
 ## npm run build
 Builds a version of the website
+
+## npm run preview
+Opens up local version of current build
 
 ## git push origin main
 Pushes a build of the website to github pages
