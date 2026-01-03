@@ -1,7 +1,7 @@
 const n=`---
 layout: blog
-title: Use This Blog for Markdown Reference
-date: 2025-08-06T19:18:00.000-07:00
+title: Welcome to PIE Dev Studios
+date: 2026-01-03T11:00:00.000-07:00
 thumbnail: pie-web/public/assets/absmom_banner.jpg
 ---
 
