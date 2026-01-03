@@ -12,59 +12,75 @@ if (typeof window !== 'undefined' && !window.Buffer) {
     return imagePath.replace(/^pie-web\/public/, '');
   };
 
+const normalizeImages = (arr) => {
+  if (!Array.isArray(arr)) return [];
+  return arr
+    .map(item => {
+      if (typeof item === 'string') return getImagePath(item);
+      if (typeof item === 'object' && item?.image) return getImagePath(item.image);
+      return null;
+    })
+    .filter(Boolean);
+};
+
 
 export default function useGamePosts () {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Clean up image path for public assets
   useEffect(() => {
     const importAll = async () => {
       try {
         setLoading(true);
-        // Updated glob import syntax
-        const markdownFiles = import.meta.glob('/src/pages/games/*.mdx', {
-          query: '?raw',
-          import: 'default',
-          eager: false
-        });
 
-        const fileEntries = Object.entries(markdownFiles);
-        
-        if (fileEntries.length === 0) {
-          throw new Error('No markdown files found');
-        }
+        const markdownFiles = import.meta.glob(
+          '/src/pages/games/*.mdx',
+          {
+            query: '?raw',
+            import: 'default'
+          }
+        );
 
         const loadedGames = await Promise.all(
-          fileEntries.map(async ([path, resolver]) => {
+          Object.entries(markdownFiles).map(async ([path, resolver]) => {
             try {
               const rawContent = await resolver();
               const { data: frontmatter, content } = matter(rawContent);
+
               return {
+                slug: path
+                  .replace('/src/pages/games/', '')
+                  .replace('.mdx', ''),
+
+                content,
+
                 frontmatter: {
                   ...frontmatter,
+
                   thumbnail: getImagePath(frontmatter.thumbnail),
-                  images: Array.isArray(frontmatter.images) ? frontmatter.images.map(imgObj => getImagePath(imgObj.image)) : [],
-                  imageCarousel: frontmatter.images ? frontmatter.images.map(imgObj => getImagePath(imgObj.image)) : [],
-                },
-                content,
-                slug: path.replace('/src/pages/games/', '').replace('.mdx', ''),
+
+                  images: normalizeImages(frontmatter.images),
+
+                  // ✅ Correctly read imageCarousel
+                  imageCarousel: normalizeImages(
+                    frontmatter.imageCarousel?.length
+                      ? frontmatter.imageCarousel
+                      : frontmatter.images
+                  ),
+                }
               };
             } catch (fileErr) {
-              console.error(`Error processing ${path}:`, fileErr);
+              console.error(`Error processing ${path}`, fileErr);
               return null;
             }
           })
         );
 
-        // Filter out failed imports
-        const validGames = loadedGames.filter(game => game !== null);
-        
-        setGames(validGames);
+        setGames(loadedGames.filter(Boolean));
       } catch (err) {
-        setError(err.message);
         console.error('Error loading games:', err);
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -72,5 +88,6 @@ export default function useGamePosts () {
 
     importAll();
   }, []);
+
   return { games, loading, error };
 }

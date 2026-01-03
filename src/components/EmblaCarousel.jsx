@@ -7,7 +7,7 @@ import '../pages/embla.css';
 
 const EmblaCarousel = (props) => {
   const navigate = useNavigate(); 
-  const { games, options, home } = props;
+  const { games, selectedIndex={idx}, options, home } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ delay: 7000, stopOnInteraction: false })
   ]);
@@ -116,7 +116,7 @@ const EmblaCarousel = (props) => {
         <div className='bg-[#F4D486]'>
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex touch-pan-y touch-pinch-zoom z-501">
-              {games[0]?.frontmatter?.imageCarousel?.map((img, index) => (
+              {games[selectedIndex].frontmatter.imageCarousel.map((img, index) => (
                 <div className="embla__slide px-10 py-5
                                 sm:px-50 sm:py-10" key={index}>
                   <img 

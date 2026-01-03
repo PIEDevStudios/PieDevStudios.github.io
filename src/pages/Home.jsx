@@ -36,6 +36,7 @@ function Home() {
                 <div className="embla-container">
                     <EmblaCarousel 
                         games={games} 
+                        selectedIndex={-1}
                         home={true}
                         options={OPTIONS} 
                     />
