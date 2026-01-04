@@ -31,7 +31,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ## Images
 
-![Sample Image](assets/absmom_banner.jpg)
+![Sample Image](assets/GameScreenshots/AbsoluteMomentum/absmom_banner.jpg)
 
 ## Blockquotes
 
