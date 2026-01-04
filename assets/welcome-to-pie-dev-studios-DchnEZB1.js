@@ -3,12 +3,9 @@ layout: blog
 title: Welcome to PIE Dev Studios
 date: 2026-01-03T10:00:00.000-07:00
 thumbnail: pie-web/public/assets/piedevlogo.png
+featuredImage: pie-web/public/assets/IRLPhotos/PIE-Dev-Studios-GroupPhoto.jpg
 ---
-# Introduction
-Hello, we are PIE Dev Studios!
-
-We're a group of friends who are passionate about video games and decided to make our own game!
-![PIE Dev Studios Group Photo](assets\\IRLPhotos\\PIE-Dev-Studios-GroupPhoto.jpg)
+Hello, we are PIE Dev Studios! We're a group of friends who are passionate about video games and decided to make our own game!
 
 ## Our History
 We started in college, working on small game prototypes and game jams, slowly building our skills and growing our team.
@@ -43,6 +40,7 @@ playtesting took a bit of a backseat. We learned a lot from Solar Sweets and too
 This brings us to now. We are hard at work on our next game, Absolute Momentum, which brings together everything we have learned up until this point.
 Absolute Momentum is our first, feature-complete title that will be launching on Steam.
 ![Absolute Momentum Banner](assets\\GameScreenshots\\AbsoluteMomentum\\absmom_banner.jpg)
+
 The game is a multiplayer parkour racing game that you can play with friends online.
 
 Set in a near-future Earth, this game puts you in the driver's seat of a global racing phenomenon. Race as one of our champions including Baku, Etoile, Sangeo, Bia, and Leilei.
