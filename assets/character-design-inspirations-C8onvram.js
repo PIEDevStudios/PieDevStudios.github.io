@@ -1,0 +1,87 @@
+const e=`---
+layout: blog
+title: Character Design Process
+date: 2026-01-15T12:00:00.000-07:00
+thumbnail: pie-web/public/assets/GameScreenshots/AbsoluteMomentum/etoile_portrait_b.png
+featuredImage: pie-web/public/assets/GameScreenshots/AbsoluteMomentum/absmom_sketch_1.jpg
+---
+Hello! Welcome back to PIE Dev Studios. I'm Phillip, the lead visual development artist for Absolute Momentum. ![Phillip Drawing](assets/phillipk_phillip_portrait.png)
+
+My job is to explore and develop ideas for characters, color palettes, environments, and the overall aesthetic for the project.
+
+Today I’m going to be going over my character design process for our characters in Absolute Momentum.
+
+# Getting Started
+When our team first proposed this racing game, the first idea that came to mind was something retro-futuristic and upbeat.
+
+I decided to focus on a grind-fiction like aesthetic for our characters, which is a blend of urban street culture, 
+Shibuya Punk, and Y2K futurism.
+
+![Absolute Momentum Inspirations](assets/GameScreenshots/AbsoluteMomentum/AbsMom_Games_Inspo.png)
+Games like Jet Set Radio, Splatoon, Persona, and Hi-Fi Rush all use the grind fiction aesthetic.
+
+This style also allows our team to create art assets that don’t require crazy AAA graphics but still hold a bright and 
+optimistic feel to compliment the speedy nature of the game.
+
+# Character Guidelines
+Before designing the characters, I also had to account for technical limitations of having to use similar base models 
+while still making sure they felt like separate people. 
+
+To help me with this, I followed these self imposed guidelines during the design process:
+### Signature Color
+![Signature Color](assets/GameScreenshots/AbsoluteMomentum/dv2_color.jpg)
+
+### Athleisure
+![Athleisure](assets/GameScreenshots/AbsoluteMomentum/dv2_athleisure.jpg)
+
+### Sci-fi Setting
+![Sci-fi Setting](assets/GameScreenshots/AbsoluteMomentum/dv2_scifi.jpg)
+
+### Cultural Identity
+![Cultural Identity](assets/GameScreenshots/AbsoluteMomentum/dv2_culture.jpg)
+
+### Animal-based Personality
+![Animal-based personality](assets/GameScreenshots/AbsoluteMomentum/dv2_animal.jpg)
+
+### Speed Trail
+![Speed trail](assets/GameScreenshots/AbsoluteMomentum/dv2_speedtrail.jpg)
+
+
+The last 5 especially helped when designing our characters because within Absolute Momentum, these were global racers 
+celebrating their culture and environment by racing in a retro-futuristic Olympic style race.
+
+# Designing the Characters
+#### I started off by doing quick sketches for four of our characters
+Please note that what you see is not final, including the character descriptions. The descriptions were very early concepts.
+![Early Absolute Momentum Cast Sketches](assets/GameScreenshots/AbsoluteMomentum/early_char_concepts_absmom.png)
+
+### Baku
+![Baku](assets/GameScreenshots/AbsoluteMomentum/baku_comparison.png)
+
+### Etoile
+![Etoile](assets/GameScreenshots/AbsoluteMomentum/etoile_comparison.png)
+
+### Sangeo
+![Sangeo](assets/GameScreenshots/AbsoluteMomentum/sangeo_comparison.png)
+
+### Lei Lei
+![Lei Lei](assets/GameScreenshots/AbsoluteMomentum/leilei_comparison.png)
+
+### Bia
+Bia was our first character designed by a new artist Shiv (@oakkari on Instagram). I did a few touchups and the final character art but the 
+foundation and direction was all built by her.
+![Bia](assets/GameScreenshots/AbsoluteMomentum/bia_comparison.png)
+
+
+# Conclusion
+Overall, I wanted our characters to capture that feeling of cultural celebration found in games like Street Fighter while 
+emphasizing the modern cultural fusion that occurs when diverse communities come together and how we can bond and progress 
+through art, especially through movement.
+
+I hope this was an insightful dive into our character design process! 
+If you're interested in my visual development work, you can find more at **[@iiamdrawing on Twitter](https://x.com/iiamdrawing)** for more!
+
+You can also follow Shiv on Instagram **[@oakkri](https://www.instagram.com/oakkri/)**!
+
+If you're interested in more info about our studio and our game, check out our socials and
+**[wishlist Absolute Momentum on Steam!](https://store.steampowered.com/app/3810400/Absolute_Momentum/)**`;export{e as default};
