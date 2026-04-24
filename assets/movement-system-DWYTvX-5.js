@@ -2,7 +2,7 @@ const e=`---
 layout: blog
 title: Our Movement System
 date: 2026-04-23T10:00:00.000-07:00
-thumbnail: pie-web/public/assets/absmom_banner.jpg
+thumbnail: pie-web/public/assets/GameScreenshots/AbsoluteMomentum/absmom_icon.jpg
 featuredImage: pie-web/public/assets/GameScreenshots/AbsoluteMomentum/gotta_go_fast.jpg
 ---
 # The Winter Arc 
