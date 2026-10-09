@@ -5,7 +5,10 @@
             "role": "Tech Art / Team Lead",
             "image": "",
             "socials": [
-                
+                {
+                    "socialIcon": "linkedin",
+                    "socialLink": "https://www.linkedin.com/in/nathan-van-der-w"
+                }
             ]
         }
     ]
