@@ -2,7 +2,19 @@
     "teamMembers": [
         {
             "name": "Nathan",
-            "role": "Tech Art / Team Lead",
+            "role": "Tech Art / Art Lead",
+            "image": "",
+            "socials": [
+                {
+                    "name": "LinkedIn",
+                    "icon": "linkedin",
+                    "url": "https://www.linkedin.com/in/nathan-van-der-w"
+                }
+            ]
+        },
+        {
+            "name": "Ben",
+            "role": "Software Engineer / SWE Lead",
             "image": "",
             "socials": [
                 {
