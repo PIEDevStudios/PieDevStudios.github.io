@@ -6,8 +6,9 @@
             "image": "",
             "socials": [
                 {
-                    "socialIcon": "linkedin",
-                    "socialLink": "https://www.linkedin.com/in/nathan-van-der-w"
+                    "name": "LinkedIn",
+                    "icon": "linkedin",
+                    "url": "https://www.linkedin.com/in/nathan-van-der-w"
                 }
             ]
         }
