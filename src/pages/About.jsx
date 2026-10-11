@@ -1,23 +1,23 @@
 function About () {
     const leads = [
-        {name:'Nathan', role:'Art Lead', image:'assets/phillipk_nathan_portrait.png'},
-        {name:'Ben', role:'Programming Lead', image:'assets/phillipk_ben_portrait.png'},
-        {name:'Charlie', role:'HR', image:'assets/phillipk_charlie_portrait.png'},
-        {name:'Laurence', role:'Marketing', image:'assets/phillipk_laurence_portrait_g.png'},
+        {name:'Nathan', role:'Art Lead', image:'assets/TeamMembers/phillipk_nathan_portrait.png'},
+        {name:'Ben', role:'Programming Lead', image:'assets/TeamMembers/phillipk_ben_portrait.png'},
+        {name:'Charlie', role:'HR', image:'assets/TeamMembers/phillipk_charlie_portrait.png'},
+        {name:'Laurence', role:'Marketing', image:'assets/TeamMembers/phillipk_laurence_portrait_g.png'},
     ]
     const members = [
-        {name:'Nathan', role:'Art Lead', image:'assets/phillipk_nathan_portrait.png'},
-        {name:'Ben', role:'Programming Lead', image:'assets/phillipk_ben_portrait.png'},
-        {name:'Charlie', role:'HR', image:'assets/phillipk_charlie_portrait.png'},
-        {name:'Laurence', role:'Marketing', image:'assets/phillipk_laurence_portrait_g.png'},
-        {name:'Nathan', role:'Art Lead', image:'assets/phillipk_nathan_portrait.png'},
-        {name:'Ben', role:'Programming Lead', image:'assets/phillipk_ben_portrait.png'},
-        {name:'Charlie', role:'HR', image:'assets/phillipk_charlie_portrait.png'},
-        {name:'Laurence', role:'Marketing', image:'assets/phillipk_laurence_portrait_g.png'},
-        {name:'Nathan', role:'Art Lead', image:'assets/phillipk_nathan_portrait.png'},
-        {name:'Ben', role:'Programming Lead', image:'assets/phillipk_ben_portrait.png'},
-        {name:'Charlie', role:'HR', image:'assets/phillipk_charlie_portrait.png'},
-        {name:'Laurence', role:'Marketing', image:'assets/phillipk_laurence_portrait_g.png'},
+        {name:'Nathan', role:'Art Lead', image:'assets/TeamMembers/phillipk_nathan_portrait.png'},
+        {name:'Ben', role:'Programming Lead', image:'assets/TeamMembers/phillipk_ben_portrait.png'},
+        {name:'Charlie', role:'HR', image:'assets/TeamMembers/phillipk_charlie_portrait.png'},
+        {name:'Laurence', role:'Marketing', image:'assets/TeamMembers/phillipk_laurence_portrait_g.png'},
+        {name:'Nathan', role:'Art Lead', image:'assets/TeamMembers/phillipk_nathan_portrait.png'},
+        {name:'Ben', role:'Programming Lead', image:'assets/TeamMembers/phillipk_ben_portrait.png'},
+        {name:'Charlie', role:'HR', image:'assets/TeamMembers/phillipk_charlie_portrait.png'},
+        {name:'Laurence', role:'Marketing', image:'assets/TeamMembers/phillipk_laurence_portrait_g.png'},
+        {name:'Nathan', role:'Art Lead', image:'assets/TeamMembers/phillipk_nathan_portrait.png'},
+        {name:'Ben', role:'Programming Lead', image:'assets/TeamMembers/phillipk_ben_portrait.png'},
+        {name:'Charlie', role:'HR', image:'assets/TeamMembers/phillipk_charlie_portrait.png'},
+        {name:'Laurence', role:'Marketing', image:'assets/TeamMembers/phillipk_laurence_portrait_g.png'},
     ]
 
     return (
