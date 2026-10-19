@@ -3,7 +3,7 @@
         {
             "name": "Nathan",
             "role": "Tech Art / Art Lead",
-            "image": "../../public/assets/TeamMembers/phillipk_nathan_portrait.png",
+            "image": "/assets/TeamMembers/phillipk_nathan_portrait.png",
             "socials": [
                 {
                     "name": "LinkedIn",
@@ -15,7 +15,7 @@
         {
             "name": "Ben",
             "role": "Software Engineer / Programming Lead",
-            "image": "../../public/assets/TeamMembers/phillipk_ben_portrait.png",
+            "image": "/assets/TeamMembers/phillipk_ben_portrait.png",
             "socials": [
                 {
                     "name": "LinkedIn",
@@ -27,7 +27,7 @@
         {
             "name": "Charlie",
             "role": "Head of Audio",
-            "image": "../../public/assets/TeamMembers/charlie_portrait.jpg",
+            "image": "/assets/TeamMembers/charlie_portrait.jpg",
             "socials": [
                 {
                     "name": "YouTube",
@@ -44,7 +44,7 @@
         {
             "name": "Laurence",
             "role": "Marketing Director / Software Engineer",
-            "image": "../../public/assets/TeamMembers/laurence_portrait.png",
+            "image": "/assets/TeamMembers/laurence_portrait.png",
             "socials": [
                 {
                     "name": "YouTube",
@@ -71,7 +71,7 @@
         {
             "name": "Andrea",
             "role": "Software Engineer",
-            "image": "../../public/assets/TeamMembers/andie_portrait.png",
+            "image": "/assets/TeamMembers/andie_portrait.png",
             "socials": [
                 {
                     "name": "Instagram",
@@ -88,7 +88,7 @@
         {
             "name": "K",
             "role": "2D Artist",
-            "image": "../../public/assets/TeamMembers/phillipk_phillip_portrait.png",
+            "image": "/assets/TeamMembers/phillip_portrait.jpg",
             "socials": [
                 {
                     "name": "Twitter",
@@ -100,7 +100,7 @@
         {
             "name": "Brandon",
             "role": "3D Artist",
-            "image": "../../public/assets/TeamMembers/brandon_portrait.png",
+            "image": "/assets/TeamMembers/brandon_portrait.png",
             "socials": [
                 {
                     "name": "Twitter",
@@ -112,7 +112,7 @@
         {
             "name": "Jacob",
             "role": "2D Artist / 3D Artist",
-            "image": "../../public/assets/TeamMembers/jacob_portrait.png",
+            "image": "/assets/TeamMembers/jacob_portrait.png",
             "socials": [
                 {
                     "name": "ArtStation",
@@ -124,7 +124,7 @@
         {
             "name": "Don",
             "role": "2D Artist / Designer",
-            "image": "../../public/assets/TeamMembers/don_portrait.png",
+            "image": "/assets/TeamMembers/don_portrait.png",
             "socials": [
                 {
                     "name": "Instagram",
@@ -141,7 +141,7 @@
         {
             "name": "Ahmed",
             "role": "Software Engineer",
-            "image": "../../public/assets/TeamMembers/ahmed_portrait.png",
+            "image": "/assets/TeamMembers/ahmed_portrait.png",
             "socials": []
         }
     ]
