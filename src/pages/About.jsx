@@ -10,7 +10,7 @@ function About() {
                 <div className="font-xl font-bold text-[#FF00AE]"> THE TEAM </div>
 
                 <div className="flex font-lg font-bold text-[#FF00AE] pt-10 tracking-[10px] mb-10"> MEMBERS </div>
-                <div className="grid grid-cols-3 gap-15 gap-x-10 lg:grid-cols-2">
+                <div className="grid grid-cols-2 gap-15 gap-x-10 lg:grid-cols-2">
                     {members.map(member => (
                         <TeamMember key={member.name} teamMember={member} variant="member" />
                     ))}
