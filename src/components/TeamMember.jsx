@@ -25,13 +25,18 @@ function TeamMember({ teamMember }) {
     return (
         <div className="flex flex-col items-center gap-2">
             <img className="rounded-full " src={teamMember.image}/>
-            <div className='font-md font-bold text-[#FF00AE] pt-5'> {(teamMember.name).toUpperCase()} </div>
+            <div className='font-lg font-bold text-[#FF00AE] pt-5'> {(teamMember.name).toUpperCase()} </div>
             <div className='font-md font-bold'> {teamMember.role} </div>
             <div className="flex gap-2">
                 {teamMember.socials?.map((social, index) => {
                     const Icon = iconMap[social.icon];
                     return Icon ? (
-                        <Icon key={index} width="w-6 h-6" url={social.url} />
+                        <div
+                            key={index}
+                            className="flex items-center justify-center p-2 rounded-full bg-[#FF00AE] border-2 border-[#FF00AE] hover:bg-transparent transition"
+                        >
+                            <Icon width="w-5 h-5" url={social.url} />
+                        </div>
                     ) : null;
                 })}
             </div>
