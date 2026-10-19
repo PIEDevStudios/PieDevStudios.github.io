@@ -3,26 +3,146 @@
         {
             "name": "Nathan",
             "role": "Tech Art / Art Lead",
-            "image": "",
+            "image": "../../public/assets/TeamMembers/phillipk_nathan_portrait.png",
             "socials": [
                 {
                     "name": "LinkedIn",
                     "icon": "linkedin",
-                    "url": "https://www.linkedin.com/in/nathan-van-der-w"
+                    "url": "https://www.linkedin.com/in/nathan-gardea/"
                 }
             ]
         },
         {
             "name": "Ben",
             "role": "Software Engineer / Programming Lead",
-            "image": "",
+            "image": "../../public/assets/TeamMembers/phillipk_ben_portrait.png",
             "socials": [
                 {
                     "name": "LinkedIn",
                     "icon": "linkedin",
-                    "url": "https://www.linkedin.com/in/nathan-van-der-w"
+                    "url": "https://www.linkedin.com/in/benjaminjiongco/"
                 }
             ]
+        },
+        {
+            "name": "Charlie",
+            "role": "Head of Audio",
+            "image": "../../public/assets/TeamMembers/charlie_portrait.jpg",
+            "socials": [
+                {
+                    "name": "YouTube",
+                    "icon": "youtube",
+                    "url": "https://www.youtube.com/@charmie945"
+                },
+                {
+                    "name": "Spotify",
+                    "icon": "spotify",
+                    "url": "https://open.spotify.com/artist/5k0LT9lNbjoccjcYZQ12fB"
+                }
+            ]
+        },
+        {
+            "name": "Laurence",
+            "role": "Marketing Director / Software Engineer",
+            "image": "../../public/assets/TeamMembers/phillipk_laurence_portrait_g.png",
+            "socials": [
+                {
+                    "name": "YouTube",
+                    "icon": "youtube",
+                    "url": "https://www.youtube.com/@emergencyplayer"
+                },
+                {
+                    "name": "Instagram",
+                    "icon": "instagram",
+                    "url": "https://www.instagram.com/emergencyplayer/"
+                },
+                {
+                    "name": "TikTok",
+                    "icon": "tiktok",
+                    "url": "https://www.tiktok.com/@emergencyplayer"
+                },
+                {
+                    "name": "LinkedIn",
+                    "icon": "linkedin",
+                    "url": "https://www.linkedin.com/in/laurencetimothymanalogarcia/"
+                }
+            ]
+        },
+        {
+            "name": "Andrea",
+            "role": "Software Engineer",
+            "image": "../../public/assets/TeamMembers/andie_portrait.png",
+            "socials": [
+                {
+                    "name": "Instagram",
+                    "icon": "instagram",
+                    "url": "https://www.instagram.com/_duendie/"
+                },
+                {
+                    "name": "LinkedIn",
+                    "icon": "linkedin",
+                    "url": "https://www.linkedin.com/in/andreacabochan"
+                }
+            ]
+        },
+        {
+            "name": "K",
+            "role": "2D Artist",
+            "image": "../../public/assets/TeamMembers/phillipk_phillip_portrait.png",
+            "socials": [
+                {
+                    "name": "Twitter",
+                    "icon": "x",
+                    "url": "https://x.com/iiamdrawing"
+                }
+            ]
+        },
+        {
+            "name": "Brandon",
+            "role": "3D Artist",
+            "image": "../../public/assets/TeamMembers/brandon_portrait.png",
+            "socials": [
+                {
+                    "name": "Twitter",
+                    "icon": "x",
+                    "url": "https://x.com/mombrki"
+                }
+            ]
+        },
+        {
+            "name": "Jacob",
+            "role": "2D Artist / 3D Artist",
+            "image": "../../public/assets/TeamMembers/jacob_portrait.png",
+            "socials": [
+                {
+                    "name": "ArtStation",
+                    "icon": "artstation",
+                    "url": "https://www.artstation.com/jascoho"
+                }
+            ]
+        },
+        {
+            "name": "Don",
+            "role": "2D Artist / Designer",
+            "image": "../../public/assets/TeamMembers/don_portrait.png",
+            "socials": [
+                {
+                    "name": "Instagram",
+                    "icon": "instagram",
+                    "url": "https://www.instagram.com/donnybondawnstudios/"
+                },
+                {
+                    "name": "Patreon",
+                    "icon": "patreon",
+                    "url": "https://www.patreon.com/cw/DonnybonDawn"
+                }
+            ]
+        },
+        {
+            "name": "Ahmed",
+            "role": "Software Engineer",
+            "image": "../../public/assets/TeamMembers/ahmed_portrait.png",
+            "socials": []
         }
     ]
 }

@@ -9,6 +9,7 @@ import X from '../assets/icons/x';
 import Youtube from '../assets/icons/youtube';
 import Instagram from '../assets/icons/instagram';
 import Tiktok from '../assets/icons/tiktok';
+import Linkedin from '../assets/icons/linkedin';
 
 function Footer () {
     return (
@@ -16,15 +17,16 @@ function Footer () {
             <div className="margin flex justify-items-center justify-between items-center w-full px-0">
                 <div className='grid grid-flow-col gap-4 grid-rows-3
                                 sm:grid-rows-2 px-5'>
-                    <Discord width={"footerlogos"} />          
+                    <Discord width={"footerlogos"} />
                     <Steam width={"footerlogos"}/> 
                     <Itch width={"footerlogos"}/>
-                    <Spotify width={"footerlogos"}/>
-                    <Bluesky width={"footerlogos"}/>
-                    <X width={"footerlogos"}/>
-                    <Youtube width={"footerlogos"}/>
-                    <Instagram width={"footerlogos"}/>
-                    <Tiktok width={"footerlogos"}/>
+                    <Spotify width={"footerlogos"} url={"https://open.spotify.com/artist/5k0LT9lNbjoccjcYZQ12fB"}/>
+                    <Bluesky width={"footerlogos"} url={"https://bsky.app/profile/piedevs.bsky.social"}/>
+                    <X width={"footerlogos"} url={"https://x.com/PieDevStudios"}/>
+                    <Youtube width={"footerlogos"} url={"https://www.youtube.com/@PIEDevs"}/>
+                    <Instagram width={"footerlogos"} url={"https://www.instagram.com/pie.devs/"}/>
+                    <Tiktok width={"footerlogos"} url={"https://www.tiktok.com/@piedevs"}/>
+                    <Linkedin width={"footerlogos"} url={"https://www.linkedin.com/company/pie-dev-studios/"}/>
                 </div>
                 <Link to="/"><img src={pieLogo} className="pielogo aspect-square"/></Link>
                 <div className='justify-items-end'>
